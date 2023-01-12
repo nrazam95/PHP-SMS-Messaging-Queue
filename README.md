@@ -210,23 +210,6 @@ Alice->>Server: Request All SMS Messages
             <h4>Method</h4>
             <p><code>POST</code></p>
             <h4>Parameters</h4>
-            <table>
-                <tr>
-                    <td><code>name</code></td>
-                    <td><code>string</code></td>
-                    <td><code>required</code></td>
-                </tr>
-                <tr>
-                    <td><code>email</code></td>
-                    <td><code>string</code></td>
-                    <td><code>required</code></td>
-                </tr>
-                <tr>
-                    <td><code>password</code></td>
-                    <td><code>string</code></td>
-                    <td><code>required</code></td>
-                </tr>
-            </table>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
@@ -267,6 +250,9 @@ Alice->>Server: Request All SMS Messages
                     <td><code>required</code></td>
                 </tr>
             </table>
+            <h4>Notes</h4>
+            <p>On success, the response will contain a JWT token that will be used for authentication.</p>
+            <p>On failure, the response will contain an error message.</p>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
@@ -278,11 +264,7 @@ Alice->>Server: Request All SMS Messages
             <pre><code class="language-javascript">
                     {
                         "status": "success",
-                        "data": {
-                            "name": "John Doe",
-                            "email": "xxx",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
-                        }
+                        "data": "ajhebwebuywuyeqbquywbBEJBQJBiubsdbhfwe="
                     }
             </code></pre>
         </td>
@@ -320,6 +302,8 @@ Alice->>Server: Request All SMS Messages
         </td>
     </tr>
 </table>
+
+## User
 
 
 
