@@ -177,55 +177,12 @@ Alice->>Server: Request All SMS Messages
 
 # PHP SMS Messages Queueing Documentation
 
-## API Endpoints
+| Category | Name | Description | Method | Endpoint | 
+|----------|------|-------------|--------|----------|
+| Authentication | Register | Register a new user | POST | /signup |
+| Authentication | Login | Login a user | POST | /login |
+| Authentication | Logout | Logout a user | POST | /logout |
 
-URL: http://{YOUR_HOST}:{YOUR_PORT}/
-
-### Register [POST]
-
-URL: http://{YOUR_HOST}:{YOUR_PORT}/login
-
-| Endpoint | Description | Method | 
-|----------|-------------|--------|
-| /login | Register a new user | POST |
-
-#### Example
-    POST /login HTTP/1.1
-    Host: localhost:8080
-    Accept: application/json
-    Content-Type: application/json
-    Body:
-    {
-        "name": "Nasrul Razam",
-        "email": "xxxx@xxx.com",
-        "phone": "+60123456789",
-        "password": "password"
-    }
-
-    Response: (200 OK)
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-
-    {
-        "status": "success",
-        "message": "Successfully registered",
-        "data": {
-            "id": 1,
-            "name": "Nasrul Razam",
-            "email": "xxx@xxx.com",
-            "created_at": "2021-08-01 00:00:00",
-            "updated_at": "2021-08-01 00:00:00"
-        }
-    }
-
-    Response: (200 OK)
-    HTTP/1.1 200 OK
-    Content-Type: application/json
-
-    {
-        "status": "error",
-        "data": "Email already exists",
-    }
 
 
 
