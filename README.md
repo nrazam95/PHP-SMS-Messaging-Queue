@@ -182,21 +182,20 @@ Alice->>Server: Request All SMS Messages
 URL: http://{YOUR_HOST}:{YOUR_PORT}/
 
 ### Register (POST)
+### List all Movies [GET]
 
-    + Request (application/json)
+List movies in reverse order of publication.
 
-            {
-                "name": "John Doe",
-                "phone": "0123456789"
-            }
++ Response 200 (application/json)
 
-    + Response 200 (application/json)
+    + Attributes (array[Movie])
 
-            {
-                "status": "success",
-                "message": "User has been registered successfully."
-            }
-            
+## Data structures
+
+### Movie
++ id: 810b43d0-fc0d-4199-8a79-25b471c880bf (string, required)
++ title: Avengers: Endgame (string, required)
++ description (string)
 
 
 
