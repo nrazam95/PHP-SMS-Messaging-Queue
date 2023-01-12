@@ -181,7 +181,13 @@ Alice->>Server: Request All SMS Messages
 
 ```mermaid
 graph LR
-A[Square Rect] --> B((Circle))
+API Endpoints[Square Rect] --> USER[Circle]
+USER --> |GET| /users
+USER --> |GET| /users/{id}
+USER --> |POST| /users
+USER --> |PUT| /users/{id}
+USER --> |DELETE| /users/{id}
+```
 
 
 
