@@ -179,15 +179,12 @@ Alice->>Server: Request All SMS Messages
 
 ## API Endpoints
 
-```mermaid
-graph LR
-API Endpoints[Square Rect] --> USER[Circle]
-USER --> |GET| /users
-USER --> |GET| /users/{id}
-USER --> |POST| /users
-USER --> |PUT| /users/{id}
-USER --> |DELETE| /users/{id}
-```
+URL: http://{YOUR_HOST}:{YOUR_PORT}/
+
+### Register
+| Method | Endpoint | Description | Parameters | Body | Response | url |
+|--------|----------|-------------| ---------- | ---- | -------- | --- |
+| POST | /signup | Register a new user | - | ```{"name": "John Doe", "email": "jnjnnj"}``` | ```{"status": "success", "message": "User created successfully"}``` | http://{URL}/signup |
 
 
 
