@@ -64,5 +64,49 @@ composer install
 3. Run the application
 
 ```bash
-php -S localhost:8000 -t server.php
+php start.php start
 ```
+
+
+## Installation & Run on Local (API)
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/nrazam95/PHP-SMS-Messaging-Queue.git
+```
+
+2. Install dependencies
+
+```bash
+composer install
+```
+
+3. Run the application
+
+```bash
+php -S localhost:8000 server.php
+```
+
+## Installation & Run on Docker (Full-Stack Socket.io && API)
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/nrazam95/PHP-SMS-Messaging-Queue.git
+```
+
+2. Run the application
+
+```bash
+docker compose up -d
+```
+
+## Prepare Your Environment
+
+1. Create a .env file in the root directory of the project
+
+```bash
+cp .env.example .env
+```
+
