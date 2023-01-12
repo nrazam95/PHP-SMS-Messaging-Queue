@@ -181,21 +181,33 @@ Alice->>Server: Request All SMS Messages
 
 URL: http://{YOUR_HOST}:{YOUR_PORT}/
 
-### Register (POST)
-### List all Movies [GET]
+### Register [POST]
 
-List movies in reverse order of publication.
+URL: http://{YOUR_HOST}:{YOUR_PORT}/login
 
-+ Response 200 (application/json)
+## Example
+```
+    POST /login HTTP/1.1
+    Host: localhost:8080
+    Accept: application/json
 
-    + Attributes (array[Movie])
+    HTTP/1.1 200 OK
+    Content-Type: application/json
 
-## Data structures
+    ```json
+    {
+        "status": "success",
+        "message": "Successfully registered",
+        "data": {
+            "id": 1,
+            "name": "Nasrul Razam",
+            "email": "xxx@xxx.com",
+            "created_at": "2021-08-01 00:00:00",
+            "updated_at": "2021-08-01 00:00:00"
+        }
+    }
+```
 
-### Movie
-+ id: 810b43d0-fc0d-4199-8a79-25b471c880bf (string, required)
-+ title: Avengers: Endgame (string, required)
-+ description (string)
 
 
 
