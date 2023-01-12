@@ -129,4 +129,25 @@ class SmsService
             $this->addSms($sms);
         }
     }
+
+    public function allMyUnreadSMS($data)
+    {
+        $rooms = new RoomService();
+        $rooms = $rooms->getRooms();
+        $smses = $this->getSmses();
+        $my_smses = array();
+
+        foreach ($rooms as $room) {
+            // Find room by checking numbers existance
+            if (in_array($data['phone'], $room->numbers)) {
+                foreach ($smses as $sms) {
+                    if ($sms->room_id == $room->id && $sms->status == 'unread' && $sms->user_id != $data['user_id']) {
+                        array_push($my_smses, $sms);
+                    }
+                }
+            }
+        }
+
+        return $my_smses;
+    }
 }

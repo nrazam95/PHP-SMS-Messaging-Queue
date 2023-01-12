@@ -2,3 +2,4 @@ rooms.json
 users.json/
 
 .env
+vendor/

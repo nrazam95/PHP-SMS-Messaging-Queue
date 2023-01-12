@@ -149,6 +149,49 @@ $router->get('/me', function($matches, $query, $body, $headers, $user) {
     }
 });
 
+$router->get('/me/unread-sms', function($matches, $query, $body, $headers, $user) {
+    try {
+        $authorization = new Authorization();
+        $authorization->authorize($user);
+        $sms_services = new SmsService();
+        $data = $sms_services->allMyUnreadSMS(array(
+            'user_id' => $user->id,
+            'phone' => $user->phone,
+        ));
+        $total = count($data);
+        foreach ($data as $key => $value) {
+            $strip = new SMSSearchByIdModel(array(
+                'id' => $value->id,
+                'room_id' => $value->room_id,
+                'user_id' => $value->user_id,
+                'message' => $value->message,
+                'status' => $value->status,
+                'created_at' => $value->created_at,
+            ));
+            $data[$key] = $strip->toObject();
+
+            if ($value->user_id == $user->id) {
+                $data[$key]->from = 'Me';
+            } else {
+                $data[$key]->from = $strip->getSender($value->user_id)->name;
+            }
+        }
+
+        return array(
+            'status' => 'success',
+            'total' => $total,
+            'data' => $data
+        );
+    } catch (Exception $e) {
+        return array(
+            'status' => 'error',
+            'data' => array(
+                'message' => $e->getMessage()
+            )
+        );
+    }
+});
+
 $router->get('/users', function($matches, $query, $body, $headers, $user) {
     try {
         $authorization = new Authorization();
@@ -418,7 +461,7 @@ $router->get('/rooms/{id}/sms', function($matches, $query, $body, $headers, $use
             if ($value->user_id == $user->id) {
                 $data['smses'][$key]->from = 'me';
             } else {
-                $data['smses'][$key]->from = 'other';
+                $data['smses'][$key]->from = $strip->getSender($value->user_id)->name;
             }
 
             // Update status to read

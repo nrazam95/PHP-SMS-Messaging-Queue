@@ -42,7 +42,7 @@ class SMSSearchByIdModel implements SMSSearchByIdModelInterface
         return $room;
     }
 
-    private function getSender($user_id)
+    public function getSender($user_id)
     {
         $user_services = new UserService();
         $user = $user_services->getUserById(array(
