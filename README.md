@@ -189,11 +189,16 @@ URL: http://{YOUR_HOST}:{YOUR_PORT}/login
     POST /login HTTP/1.1
     Host: localhost:8080
     Accept: application/json
+    {
+        "name": "Nasrul Razam",
+        "email": "xxxx@xxx.com",
+        "phone": "+60123456789",
+        "password": "password"
+    }
 
     HTTP/1.1 200 OK
     Content-Type: application/json
 
-    ```json
     {
         "status": "success",
         "message": "Successfully registered",
@@ -205,7 +210,6 @@ URL: http://{YOUR_HOST}:{YOUR_PORT}/login
             "updated_at": "2021-08-01 00:00:00"
         }
     }
-    ```
 
 
 
