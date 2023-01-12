@@ -141,6 +141,14 @@ E --> F[Socket.io]
 F --> G[Client]
 ```
 
+```mermaid
+sequenceDiagram
+Client->>Server: Send SMS Message
+Server->>Client: SMS Message
+Client->>Server: Get All SMS Messages
+Server->>Client: All SMS Messages
+```
+
 ### API
 
 ![API Architecture](#architecture)
