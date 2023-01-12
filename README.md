@@ -43,12 +43,7 @@ Use of proper API methods for each endpoint (GET, POST, etc)
 
 |         | Description | Run on Local | Run on Docker |
 |---------|-------------|--------------|---------------|
-| Full-Stack Socket.io | This is a full-stack application that uses Socket.io to send SMS messages to the client. | ```
-php start.php start
-``` | ```
-php -S localhost:8000 server.php
-```|
-
+| Full-Stack Socket.io | This is a full-stack application that uses Socket.io to send SMS messages to the client. |```php start.php start```|```docker compose up -d```|
 
 
 ## Installation & Run on Local (Full-Stack Socket.io)
