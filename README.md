@@ -203,16 +203,50 @@ Alice->>Server: Request All SMS Messages
 <table>
     <tr>
         <td valign="top" width="100%">
-            ### Register
-            <br>
-
-            ## Endpoint
-            <br>
-
-            ```bash
-            POST /signup
-            ```
-            <br>
+            <h3>Register</h3>
+            <p>Register a new user</p>
+            <h4>Endpoint</h4>
+            <p><code>/signup</code></p>
+            <h4>Method</h4>
+            <p><code>POST</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <td><code>name</code></td>
+                    <td><code>string</code></td>
+                    <td><code>required</code></td>
+                </tr>
+                <tr>
+                    <td><code>email</code></td>
+                    <td><code>string</code></td>
+                    <td><code>required</code></td>
+                </tr>
+                <tr>
+                    <td><code>password</code></td>
+                    <td><code>string</code></td>
+                    <td><code>required</code></td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "name": "John Doe",
+                        "email": "xxx@xxx.com",
+                        "password": "123456",
+                    }
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "message": "User created successfully",
+                        "data": {
+                            "name": "John Doe",
+                            "email": "xxx",
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
         </td>
     </tr>
 </table>
