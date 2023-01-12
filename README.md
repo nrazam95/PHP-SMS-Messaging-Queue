@@ -186,7 +186,6 @@ URL: http://{YOUR_HOST}:{YOUR_PORT}/
 URL: http://{YOUR_HOST}:{YOUR_PORT}/login
 
 ## Example
-```
     POST /login HTTP/1.1
     Host: localhost:8080
     Accept: application/json
@@ -207,7 +206,6 @@ URL: http://{YOUR_HOST}:{YOUR_PORT}/login
         }
     }
     ```
-```
 
 
 
