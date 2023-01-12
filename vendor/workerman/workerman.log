@@ -1,0 +1,56 @@
+2023-01-12 03:56:50 pid:7187 Workerman[start.php] start in DEBUG mode
+2023-01-12 03:57:48 pid:7187 Workerman[start.php] stopping ...
+2023-01-12 03:57:48 pid:7187 worker[PHPSocketIO:7189] exit with status 2
+2023-01-12 03:57:48 pid:7187 worker[web:7188] exit with status 2
+2023-01-12 03:57:48 pid:7187 Workerman[start.php] has been stopped
+2023-01-12 03:57:53 pid:7263 Workerman[start.php] start in DEBUG mode
+2023-01-12 04:03:39 pid:7263 Workerman[start.php] stopping ...
+2023-01-12 04:03:39 pid:7263 worker[web:7264] exit with status 2
+2023-01-12 04:03:39 pid:7263 Workerman[start.php] has been stopped
+2023-01-12 04:03:48 pid:7484 Workerman[start.php] start in DEBUG mode
+2023-01-12 04:05:43 pid:7484 Workerman[start.php] stopping ...
+2023-01-12 04:05:43 pid:7484 worker[web:7485] exit with status 2
+2023-01-12 04:05:43 pid:7484 Workerman[start.php] has been stopped
+2023-01-12 07:03:54 pid:30684 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:04:20 pid:30761 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:04:26 pid:30811 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:05:09 pid:30811 Workerman[start.php] stopping ...
+2023-01-12 07:05:09 pid:30811 Workerman[start.php] has been stopped
+2023-01-12 07:07:21 pid:31141 Workerman[start.php] start in DAEMON mode
+2023-01-12 07:07:30 pid:31194 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:07:30 pid:31194 Workerman[start.php] already running
+2023-01-12 07:08:18 pid:31319 Workerman[start.php] stop 
+2023-01-12 07:08:18 pid:31319 Workerman[start.php] is stopping ...
+2023-01-12 07:08:18 pid:31143 Workerman[start.php] stopping ...
+2023-01-12 07:08:18 pid:31143 Workerman[start.php] has been stopped
+2023-01-12 07:08:18 pid:31319 Workerman[start.php] stop success
+2023-01-12 07:08:26 pid:31368 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:09:43 pid:31368 Workerman[start.php] stopping ...
+2023-01-12 07:09:43 pid:31368 worker[PHPSocketIO:31370] exit with status 2
+2023-01-12 07:09:43 pid:31368 worker[web:31369] exit with status 2
+2023-01-12 07:09:43 pid:31368 Workerman[start.php] has been stopped
+2023-01-12 07:15:11 pid:31941 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:15:17 pid:31941 Workerman[start.php] stopping ...
+2023-01-12 07:15:17 pid:31941 worker[PHPSocketIO:31943] exit with status 2
+2023-01-12 07:15:17 pid:31941 worker[web:31942] exit with status 2
+2023-01-12 07:15:17 pid:31941 Workerman[start.php] has been stopped
+2023-01-12 07:27:56 pid:33864 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:29:38 pid:34172 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:44:41 pid:34172 Workerman[start.php] stopping ...
+2023-01-12 07:44:41 pid:34172 worker[PHPSocketIO:34174] exit with status 2
+2023-01-12 07:44:41 pid:34172 worker[web:34173] exit with status 2
+2023-01-12 07:44:41 pid:34172 Workerman[start.php] has been stopped
+2023-01-12 07:44:46 pid:35360 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:45:26 pid:35360 Workerman[start.php] stopping ...
+2023-01-12 07:45:26 pid:35360 worker[PHPSocketIO:35362] exit with status 2
+2023-01-12 07:45:26 pid:35360 worker[web:35361] exit with status 2
+2023-01-12 07:45:26 pid:35360 Workerman[start.php] has been stopped
+2023-01-12 07:45:31 pid:35496 Workerman[start.php] start in DEBUG mode
+2023-01-12 07:53:24 pid:35496 Workerman[start.php] stopping ...
+2023-01-12 07:53:24 pid:35496 worker[PHPSocketIO:35500] exit with status 2
+2023-01-12 07:53:24 pid:35496 worker[web:35499] exit with status 2
+2023-01-12 07:53:24 pid:35496 Workerman[start.php] has been stopped
+2023-01-12 07:53:25 pid:36216 Workerman[start.php] start in DEBUG mode
+2023-01-12 09:19:21 pid:36216 Workerman[start.php] stopping ...
+2023-01-12 09:19:21 pid:36216 Workerman[start.php] has been stopped
+2023-01-12 09:19:26 pid:44528 Workerman[start.php] start in DEBUG mode

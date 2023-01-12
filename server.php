@@ -12,7 +12,6 @@ require 'models/rooms_model.php';
 
 $router = new Router();
 
-
 $router->post('/register', function($matches, $query, $body, $headers, $user) {
     try {
         $parse_body = new UserBody($body);

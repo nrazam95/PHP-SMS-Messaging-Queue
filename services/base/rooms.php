@@ -15,7 +15,11 @@ class Room
             $room['numbers'][0],
             $room['numbers'][1]
         ]) == false) {
-            throw new Exception('Numbers are already in room');
+            $existed_room = $this->getRoomsByNumbers([
+                $room['numbers'][0],
+                $room['numbers'][1]
+            ]);
+            return $existed_room;
         }
         $json = json_encode($room);
         file_put_contents($this->fileName, $json . PHP_EOL, FILE_APPEND | LOCK_EX);
@@ -37,6 +41,17 @@ class Room
         foreach ($rooms as $room) {
             if (in_array($numbers[0], $room->numbers) && in_array($numbers[1], $room->numbers)) {
                 return false;
+            }
+        }
+        return true;
+    }
+
+    public function getRoomsByNumbers($numbers)
+    {
+        $rooms = $this->getRooms();
+        foreach ($rooms as $room) {
+            if (in_array($numbers[0], $room->numbers) && in_array($numbers[1], $room->numbers)) {
+                return $room;
             }
         }
         return true;

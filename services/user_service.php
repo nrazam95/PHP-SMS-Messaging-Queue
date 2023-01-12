@@ -70,7 +70,6 @@ class UserService
     public function validate($user)
     {
         $users = $this->getUsers();
-        echo json_encode($users);
         foreach ($users as $u) {
             if ($u->email == $user['email'] || $u->phone == $user['phone']) {
                 return true;

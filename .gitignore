@@ -1,2 +1,4 @@
 rooms.json
-users.json
+users.json/
+
+.env
