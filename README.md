@@ -110,3 +110,43 @@ docker compose up -d
 cp .env.example .env
 ```
 
+
+## Usage
+
+1. Open your browser and go to http://{YOUR_HOST}:{YOUR_PORT}/
+
+
+
+## Architecture
+
+### Full-Stack Socket.io
+
+![Full-Stack Socket.io Architecture](#architecture)
+
+1. The client connects to the server using Socket.io
+2. The client sends a request to the server to send an SMS message
+3. The server sends the SMS message to the client using Socket.io
+4. The client receives the SMS message from the server using Socket.io
+5. The client sends a request to the server to get all SMS messages
+6. The server sends all SMS messages to the client using Socket.io
+7. The client receives all SMS messages from the server using Socket.io
+
+```mermaid
+graph LR
+A[Client] --> B[Server]
+B --> C[Socket.io]
+C --> D[Client]
+D --> E[Server]
+E --> F[Socket.io]
+F --> G[Client]
+```
+
+### API
+
+![API Architecture](#architecture)
+
+
+
+
+
+
