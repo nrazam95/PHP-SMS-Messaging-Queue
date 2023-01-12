@@ -210,11 +210,44 @@ Alice->>Server: Request All SMS Messages
             <h4>Method</h4>
             <p><code>POST</code></p>
             <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The name of the user</td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The email of the user</td>
+                </tr>
+                <tr>
+                    <td>phone</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The phone number of the user</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The password of the user</td>
+                </tr>
+            </table>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
                         "name": "John Doe",
                         "email": "xxx@xxx.com",
+                        "phone": "0123456789",
                         "password": "123456",
                     }
             </code></pre>
@@ -276,18 +309,8 @@ Alice->>Server: Request All SMS Messages
             <h4>Method</h4>
             <p><code>POST</code></p>
             <h4>Parameters</h4>
-            <table>
-                <tr>
-                    <td><code>email</code></td>
-                    <td><code>string</code></td>
-                    <td><code>required</code></td>
-                </tr>
-                <tr>
-                    <td><code>password</code></td>
-                    <td><code>string</code></td>
-                    <td><code>required</code></td>
-                </tr>
-            </table>
+            <h4>Notes</h4>
+            <p>No parameters are required.</p>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {}
