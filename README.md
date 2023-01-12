@@ -184,7 +184,7 @@ URL: http://{YOUR_HOST}:{YOUR_PORT}/
 ### Register
 | Method | Endpoint | Description | Parameters | Body | Response | url |
 |--------|----------|-------------| ---------- | ---- | -------- | --- |
-| POST | /signup | Register a new user | - | ```{"name": "John Doe", "email": "jnjnnj"}``` | ```{"status": "success", "message": "User created successfully"}``` | http://{URL}/signup |
+| POST | /signup | Register a new user | - | ```bash { "name": "Alex", "email": "xxxx@xxx.com", "phone": "+60123456789", "password": "xxxxxx" } ``` | ```{"status": "error", "data": "User already exists"}``` | ```{"status": "success", "data": "User created successfully"}``` | http://{URL}/signup |
 
 
 
