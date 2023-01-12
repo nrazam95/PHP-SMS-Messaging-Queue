@@ -181,7 +181,7 @@ Alice->>Server: Request All SMS Messages
 
 ```mermaid
 graph LR
-A[Square Root] --> B[GET /api/square-root/{number}]
+A[Square Rect] --> B((Circle))
 
 
 
