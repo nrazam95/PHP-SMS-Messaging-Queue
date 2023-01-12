@@ -121,8 +121,6 @@ cp .env.example .env
 
 ### Full-Stack Socket.io
 
-![Full-Stack Socket.io Architecture](#architecture)
-
 1. The client connects to the server using Socket.io
 2. The client sends a request to the server to send an SMS message
 3. The server sends the SMS message to the client using Socket.io
@@ -151,7 +149,31 @@ Server->>Client: All SMS Messages
 
 ### API
 
-![API Architecture](#architecture)
+1. The client sends a request to the server to send an SMS message
+2. The server sends the SMS message to the client
+3. The client sends a request to the server to get all SMS messages
+4. The server sends all SMS messages to the client
+
+```mermaid
+graph LR
+A[Client] --> B[Server]
+B --> C[Client]
+C --> D[Server]
+D --> E[Client]
+```
+
+```mermaid
+sequenceDiagram
+Alice->>Server: Send SMS Message
+Server-->>Bob: Receive SMS Message (Unread)
+Bob->>Server: Request SMS Message
+Server-->>Bob: Read SMS Message (Read)
+Bob->>Server: Send SMS Message
+Server-->>Alice: Receive SMS Message (Unread)
+Alice->>Server: Request SMS Message
+Server-->>Alice: Read SMS Message (Read)
+Alice->>Server: Request All SMS Messages
+```
 
 
 
