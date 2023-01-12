@@ -185,10 +185,16 @@ URL: http://{YOUR_HOST}:{YOUR_PORT}/
 
 URL: http://{YOUR_HOST}:{YOUR_PORT}/login
 
-## Example
+| Endpoint | Description | Method | 
+|----------|-------------|--------|
+| /login | Register a new user | POST |
+
+#### Example
     POST /login HTTP/1.1
     Host: localhost:8080
     Accept: application/json
+    Content-Type: application/json
+    Body:
     {
         "name": "Nasrul Razam",
         "email": "xxxx@xxx.com",
@@ -196,6 +202,7 @@ URL: http://{YOUR_HOST}:{YOUR_PORT}/login
         "password": "password"
     }
 
+    Response: (200 OK)
     HTTP/1.1 200 OK
     Content-Type: application/json
 
@@ -209,6 +216,15 @@ URL: http://{YOUR_HOST}:{YOUR_PORT}/login
             "created_at": "2021-08-01 00:00:00",
             "updated_at": "2021-08-01 00:00:00"
         }
+    }
+
+    Response: (200 OK)
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+        "status": "error",
+        "data": "Email already exists",
     }
 
 
