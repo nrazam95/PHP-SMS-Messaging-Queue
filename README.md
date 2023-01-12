@@ -198,6 +198,26 @@ Alice->>Server: Request All SMS Messages
 | SMS | Update SMS Message By ID | Update an SMS message by ID | PUT | /rooms/{id}/sms/{sms_id} |
 | SMS | Delete SMS Message By ID | Delete an SMS message by ID | DELETE | /rooms/{id}/sms/{sms_id} |
 
+## Authentication
+
+<table>
+    <tr>
+        <td valign="top" width="100%">
+            ### Register
+            <br>
+
+            ## Endpoint
+            <br>
+
+            ```bash
+            POST /signup
+            ```
+            <br>
+        </td>
+    </tr>
+</table>
+
+
 
 
 
