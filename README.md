@@ -181,10 +181,22 @@ Alice->>Server: Request All SMS Messages
 
 URL: http://{YOUR_HOST}:{YOUR_PORT}/
 
-### Register
-| Method | Endpoint | Description | Parameters | Body | Response | url |
-|--------|----------|-------------| ---------- | ---- | -------- | --- |
-| POST | /signup | Register a new user | - | ```{ "name": "Alex", "email": "xxxx@xxx.com", "phone": "+60123456789", "password": "xxxxxx" } ``` | ```{"status": "error", "data": "User already exists"} or {"status": "success", "data": "User created successfully"}``` | http://{URL}/signup |
+### Register (POST)
+
+    + Request (application/json)
+
+            {
+                "name": "John Doe",
+                "phone": "0123456789"
+            }
+
+    + Response 200 (application/json)
+
+            {
+                "status": "success",
+                "message": "User has been registered successfully."
+            }
+            
 
 
 
