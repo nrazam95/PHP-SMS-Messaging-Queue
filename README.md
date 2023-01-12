@@ -182,6 +182,22 @@ Alice->>Server: Request All SMS Messages
 | Authentication | Register | Register a new user | POST | /signup |
 | Authentication | Login | Login a user | POST | /login |
 | Authentication | Logout | Logout a user | POST | /logout |
+| User | Delete User | Delete the authenticated user | DELETE | /users |
+| User | Get All Users | Get all users | GET | /users|
+| User | Get User By ID | Get a user by ID | GET | /users/{id} |
+| User | Update User By ID | Update a user by ID | PUT | /users/{id} |
+| User | Delete User By ID | Delete a user by ID | DELETE | /users/{id} |
+| Room | Create Room | Create a new room | POST | /rooms |
+| Room | Get All Rooms | Get all rooms | GET | /rooms |
+| Room | Get Room By ID | Get a room by ID | GET | /rooms/{id} |
+| Room | Update Room By ID | Update a room by ID | PUT | /rooms/{id} |
+| Room | Delete Room By ID | Delete a room by ID | DELETE | /rooms/{id} |
+| SMS | Send SMS Message | Send an SMS message | POST | /rooms/{id}/ |
+| SMS | Get All SMS Messages | Get all SMS messages | GET | /rooms/{id}/ |
+| SMS | Get SMS Message By ID | Get an SMS message by ID | GET | /rooms/{id}/sms/{sms_id} |
+| SMS | Update SMS Message By ID | Update an SMS message by ID | PUT | /rooms/{id}/sms/{sms_id} |
+| SMS | Delete SMS Message By ID | Delete an SMS message by ID | DELETE | /rooms/{id}/sms/{sms_id} |
+
 
 
 
