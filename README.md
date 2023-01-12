@@ -167,13 +167,25 @@ sequenceDiagram
 Alice->>Server: Send SMS Message
 Server-->>Bob: Receive SMS Message (Unread)
 Bob->>Server: Request SMS Message
-Server-->>Bob: Read SMS Message (Read)
+Server->>Bob: Read SMS Message (Read)
 Bob->>Server: Send SMS Message
 Server-->>Alice: Receive SMS Message (Unread)
 Alice->>Server: Request SMS Message
-Server-->>Alice: Read SMS Message (Read)
+Server->>Alice: Read SMS Message (Read)
 Alice->>Server: Request All SMS Messages
 ```
+
+# PHP SMS Messages Queueing Documentation
+
+## API Endpoints
+
+```mermaid
+graph LR
+A[Square Root] --> B[GET /api/square-root/{number}]
+
+
+
+
 
 
 
