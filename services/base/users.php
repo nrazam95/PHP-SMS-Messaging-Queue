@@ -18,6 +18,10 @@ class User
 
     public function getUser()
     {
+        if (!file_exists($this->fileName)) {
+            return null;
+        }
+
         $file = fopen($this->fileName, 'r+');
         if (flock($file, LOCK_EX)) {
             $user = fgets($file);
@@ -70,6 +74,9 @@ class User
 
     public function getUsers()
     {
+        if (!file_exists($this->fileName)) {
+            return [];
+        }
         $file = fopen($this->fileName, 'r');
         if (flock($file, LOCK_SH)) {
             $users = [];
@@ -78,6 +85,11 @@ class User
             }
             flock($file, LOCK_UN);
             fclose($file);
+
+            $users = array_map(function ($user) {
+                $user->created_at = strtotime($user->created_at);
+                return $user;
+            }, $users);
             return $users;
         } else {
             fclose($file);

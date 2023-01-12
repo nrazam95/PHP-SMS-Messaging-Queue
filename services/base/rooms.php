@@ -59,6 +59,10 @@ class Room
 
     public function getRooms()
     {
+        if (!file_exists($this->fileName)) {
+            return [];
+        }
+
         $file = fopen($this->fileName, 'r');
         if (flock($file, LOCK_SH)) {
             $rooms = [];
@@ -67,6 +71,11 @@ class Room
             }
             flock($file, LOCK_UN);
             fclose($file);
+
+            // Sort rooms by created_at
+            usort($rooms, function ($a, $b) {
+                return $a->created_at < $b->created_at;
+            });
             return $rooms;
         } else {
             fclose($file);

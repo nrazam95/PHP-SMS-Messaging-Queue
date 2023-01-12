@@ -74,7 +74,7 @@ class Router implements RouterInterface
             foreach ($this->routes[$method] as $route => $callback) {
                 $matches = array();
                 $pattern = preg_replace('/\//', '\/', $route);
-                $pattern = preg_replace('/\{[a-zA-Z0-9]+\}/', '([a-zA-Z0-9]+)', $pattern);
+                $pattern = preg_replace('/\{[a-z\d_]*\}/', '([a-z\d_]*)', $pattern);
                 $pattern = '/^' . $pattern . '$/';
                 
                 if (preg_match($pattern, $uri, $matches)) {
@@ -123,6 +123,28 @@ class Router implements RouterInterface
         $body = file_get_contents('php://input');
         $data = json_decode($body, true);
         return $data;
+    }
+
+    private function checkIfTwoParametersExist($route, $uri)
+    {
+        $route_exploded = explode('/', $route);
+        $route_exploded = array_filter($route_exploded, function($item) {
+            return $item != '';
+        });
+
+        $uri_exploded = explode('/', $uri);
+        $uri_exploded = array_filter($uri_exploded, function($item) {
+            return $item != '';
+        });
+
+        $route_exploded = array_values($route_exploded);
+        $uri_exploded = array_values($uri_exploded);
+
+        if (count($route_exploded) == count($uri_exploded)) {
+            return true;
+        }
+
+        return false;
     }
 
     private function authenticating()

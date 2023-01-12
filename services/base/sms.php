@@ -9,14 +9,18 @@ class MessageQueue
         $this->fileName = $fileName;
     }
 
-    public function push($message)
+    public function addSms($message)
     {
         $json = json_encode($message);
         file_put_contents($this->fileName, $json . PHP_EOL, FILE_APPEND | LOCK_EX);
+        return $message;
     }
 
-    public function pop()
+    public function getSms()
     {
+        if (!file_exists($this->fileName)) {
+            return null;
+        }
         $file = fopen($this->fileName, 'r+');
         if (flock($file, LOCK_EX)) {
             $message = fgets($file);
@@ -40,6 +44,9 @@ class MessageQueue
 
     public function getMessages()
     {
+        if (!file_exists($this->fileName)) {
+            return [];
+        }
         $file = fopen($this->fileName, 'r');
         if (flock($file, LOCK_SH)) {
             $messages = [];
@@ -48,6 +55,11 @@ class MessageQueue
             }
             flock($file, LOCK_UN);
             fclose($file);
+
+            $messages = array_map(function ($message) {
+                $message->created_at = strtotime($message->created_at);
+                return $message;
+            }, $messages);
             return $messages;
         } else {
             fclose($file);
@@ -62,6 +74,9 @@ class MessageQueue
 
     public function totalQueuedMessages()
     {
+        if (!file_exists($this->fileName)) {
+            return 0;
+        }
         $file = fopen($this->fileName, 'r');
         if (flock($file, LOCK_SH)) {
             $count = 0;
@@ -71,6 +86,33 @@ class MessageQueue
             flock($file, LOCK_UN);
             fclose($file);
             return $count;
+        } else {
+            fclose($file);
+            return null;
+        }
+    }
+
+    public function getSmses()
+    {
+        if (!file_exists($this->fileName)) {
+            return [];
+        }
+
+        $file = fopen($this->fileName, 'r');
+        if (flock($file, LOCK_SH)) {
+            $smses = [];
+            while (($sms = fgets($file)) !== false) {
+                $smses[] = json_decode($sms);
+            }
+            flock($file, LOCK_UN);
+            fclose($file);
+
+            // sort by created_at
+            $smses = array_map(function ($sms) {
+                $sms->created_at = strtotime($sms->created_at);
+                return $sms;
+            }, $smses);
+            return $smses;
         } else {
             fclose($file);
             return null;

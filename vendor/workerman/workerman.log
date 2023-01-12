@@ -54,3 +54,7 @@
 2023-01-12 09:19:21 pid:36216 Workerman[start.php] stopping ...
 2023-01-12 09:19:21 pid:36216 Workerman[start.php] has been stopped
 2023-01-12 09:19:26 pid:44528 Workerman[start.php] start in DEBUG mode
+2023-01-12 10:38:35 pid:44528 Workerman[start.php] stopping ...
+2023-01-12 10:38:35 pid:44528 worker[web:44529] exit with status 2
+2023-01-12 10:38:35 pid:44528 worker[PHPSocketIO:44530] exit with status 2
+2023-01-12 10:38:35 pid:44528 Workerman[start.php] has been stopped

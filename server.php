@@ -9,6 +9,9 @@ require 'services/base/token.php';
 require 'services/authorization_service.php';
 require 'services/rooms_service.php';
 require 'models/rooms_model.php';
+require 'services/sms_service.php';
+require 'models/sms_model.php';
+require 'models/search_by_id_model.php';
 
 $router = new Router();
 
@@ -253,6 +256,10 @@ $router->post('/rooms', function($matches, $query, $body, $headers, $user) {
             throw new Exception('From number is required');
         }
 
+        if (empty($body['message'])) {
+            throw new Exception('Message is required');
+        }
+
         if ($body['to_number'] == $user->phone) {
             throw new Exception('To number and from number cannot be the same');
         }
@@ -263,7 +270,7 @@ $router->post('/rooms', function($matches, $query, $body, $headers, $user) {
         );
 
         $parse_body = new RoomBody($new_body);
-        $data = $room_services->addRoom(array(
+        $room_created = $room_services->addRoom(array(
             'id' => $parse_body->id(),
             'numbers' => $parse_body->numbers(),
             'created_at' => date('Y-m-d H:i:s'),
@@ -271,7 +278,7 @@ $router->post('/rooms', function($matches, $query, $body, $headers, $user) {
 
         return array(
             'status' => 'success',
-            'data' => $data
+            'data' => $room_created
         );
     } catch (Exception $e) {
         return array(
@@ -346,9 +353,33 @@ $router->delete('/rooms/{id}', function($matches, $query, $body, $headers, $user
     }
 });
 
-$router->post('/room/{id}/messages', function($matches, $query, $body, $headers, $user) {
+$router->post('/rooms/{id}/sms', function($matches, $query, $body, $headers, $user) {
     try {
-        $data = 'Hello World';
+        $authorization = new Authorization();
+        $authorization->authorize($user);
+        $sms_services = new SmsService();
+        $parse_body = new SmsBody(array(
+            'room_id' => $matches[0],
+            'user_id' => $user->id,
+            'message' => $body['message'],
+        ));
+
+        if (empty($user->phone)) {
+            throw new Exception('From number is required');
+        }
+
+        if (empty($body['message'])) {
+            throw new Exception('Message is required');
+        }
+
+        $data = $sms_services->addSms(array(
+            'id' => $parse_body->id(),
+            'room_id' => $parse_body->room_id(),
+            'user_id' => $parse_body->user_id(),
+            'message' => $parse_body->message(),
+            'status' => $parse_body->status(),
+            'created_at' => $parse_body->created_at(),
+        ));
 
         return array(
             'status' => 'success',
@@ -364,9 +395,37 @@ $router->post('/room/{id}/messages', function($matches, $query, $body, $headers,
     }
 });
 
-$router->get('/room/{id}/messages', function($matches, $query, $body, $headers, $user) {
+$router->get('/rooms/{id}/sms', function($matches, $query, $body, $headers, $user) {
     try {
-        $data = 'Hello World';
+        $authorization = new Authorization();
+        $authorization->authorize($user);
+        $smses = new SmsService();
+        $data['smses'] = $smses->getSMSByRoomId(array(
+            'room_id' => $matches[0],
+        ));
+
+        foreach ($data['smses'] as $key => $value) {
+            $strip = new SMSSearchByIdModel(array(
+                'id' => $value->id,
+                'room_id' => $value->room_id,
+                'user_id' => $value->user_id,
+                'message' => $value->message,
+                'status' => $value->status,
+                'created_at' => $value->created_at,
+            ));
+            $data['smses'][$key] = $strip->toObject();
+
+            if ($value->user_id == $user->id) {
+                $data['smses'][$key]->from = 'me';
+            } else {
+                $data['smses'][$key]->from = 'other';
+            }
+
+            // Update status to read
+            if ($value->user_id != $user->id) {
+                $smses->updateStatusWhenGetSms($value->user_id);
+            };
+        }
 
         return array(
             'status' => 'success',
@@ -382,9 +441,32 @@ $router->get('/room/{id}/messages', function($matches, $query, $body, $headers, 
     }
 });
 
-$router->get('/room/{id}/messages/{message_id}', function($matches, $query, $body, $headers, $user) {
+$router->get('/rooms/{id}/sms/{sms_id}', function($matches, $query, $body, $headers, $user) {
     try {
-        $data = 'Hello World';
+        $authorization = new Authorization();
+        $authorization->authorize($user);
+        $smses = new SmsService();
+        $data = $smses->getSMSById(array(
+            'room_id' => $matches[0],
+            'sms_id' => $matches[1],
+        ));
+
+        $strip = new SMSSearchByIdModel(array(
+            'id' => $data->id,
+            'room_id' => $data->room_id,
+            'user_id' => $data->user_id,
+            'message' => $data->message,
+            'status' => $data->status,
+            'created_at' => $data->created_at,
+        ));
+
+        $data = $strip->toObject();
+
+        if ($data->user_id == $user->id) {
+            $data->from = 'me';
+        } else {
+            $data->from = 'other';
+        }
 
         return array(
             'status' => 'success',
@@ -400,9 +482,27 @@ $router->get('/room/{id}/messages/{message_id}', function($matches, $query, $bod
     }
 });
 
-$router->delete('/room/{id}/messages/{message_id}', function($matches, $query, $body, $headers, $user) {
+$router->delete('/rooms/{id}/sms/{sms_id}', function($matches, $query, $body, $headers, $user) {
     try {
-        $data = 'Hello World';
+        $authorization = new Authorization();
+        $authorization->authorize($user);
+        $smses = new SmsService();
+        $data = $smses->getSMSById(array(
+            'room_id' => $matches[0],
+            'sms_id' => $matches[1],
+        ));
+
+        if ($data == null) {
+            throw new Exception('SMS not found');
+        }
+
+        if ($data->user_id != $user->id) {
+            throw new Exception('You are not allowed to delete this sms');
+        }
+
+        $smses->deleteSMSById(array(
+            'sms_id' => $matches[1],
+        ));
 
         return array(
             'status' => 'success',
@@ -418,9 +518,36 @@ $router->delete('/room/{id}/messages/{message_id}', function($matches, $query, $
     }
 });
 
-$router->put('/room/{id}/messages/{message_id}', function($matches, $query, $body, $headers, $user) {
+$router->put('/rooms/{id}/sms/{sms_id}', function($matches, $query, $body, $headers, $user) {
     try {
-        $data = 'Hello World';
+        $authorization = new Authorization();
+        $authorization->authorize($user);
+        $smses = new SmsService();
+        $data = $smses->getSMSById(array(
+            'room_id' => $matches[0],
+            'sms_id' => $matches[1],
+        ));
+
+        if (empty($body['message'])) {
+            throw new Exception('Message is required');
+        }
+
+        if ($data == null) {
+            throw new Exception('SMS not found');
+        }
+
+        if ($data->user_id != $user->id) {
+            throw new Exception('You are not allowed to edit this sms');
+        }
+
+        $data = $smses->updateSMS(array(
+            'id' => $data->id,
+            'room_id' => $data->room_id,
+            'user_id' => $user->id,
+            'message' => $body['message'],
+            'status' => $data->status,
+            'created_at' => $data->created_at,
+        ));
 
         return array(
             'status' => 'success',

@@ -13,7 +13,7 @@ class UserService
 
     public function addUser($user)
     {
-        $this->user->addUser($user);
+        return $this->user->addUser($user);
     }
 
     public function getUser()
