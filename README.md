@@ -809,6 +809,362 @@ Alice->>Server: Request All SMS Messages
     </tr>
 </table>
 
+## SMS
+
+<table>
+    <tr>
+        <td valign="top" width="50%">
+            <h1>Send SMS</h1>
+            <p>Send an SMS</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms/{id}/sms</code></p>
+            <h4>Method</h4>
+            <p><code>POST</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the room</td>
+                </tr>
+            </table>
+            <h4>Body Type</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>to_number</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The phone number to send the SMS to</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The message to send</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "message": "Hello World",
+                    }
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "message": "Hello World",
+                            "to_number": "1234567890",
+                            "from_number": "1234567890",
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Get SMS</h1>
+            <p>Get an SMS</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms/{id}/sms/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the room</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the SMS</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "message": "Hello World",
+                            "to_number": "1234567890",
+                            "from_number": "1234567890",
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Get SMS List</h1>
+            <p>Get a list of SMS</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms/{id}/sms</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the room</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": [
+                            {
+                                "message": "Hello World",
+                                "to_number": "1234567890",
+                                "from_number": "1234567890",
+                                "created_at": "2021-08-01T12:00:00.000000Z",
+                            },
+                            {
+                                "message": "Hello World",
+                                "to_number": "1234567890",
+                                "from_number": "1234567890",
+                                "created_at": "2021-08-01T12:00:00.000000Z",
+                            }
+                        ]
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Update SMS</h1>
+            <p>Update an SMS</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms/{id}/sms/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>PUT</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the room</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the SMS</td>
+                </tr>
+            </table>
+            <h4>Body Type</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>to_number</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The phone number to send the SMS to</td>
+                </tr>
+                <tr>
+                    <td>message</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The message to send</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "message": "Hello World",
+                    }
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "message": "Hello World",
+                            "to_number": "1234567890",
+                            "from_number": "1234567890",
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Delete SMS</h1>
+            <p>Delete an SMS</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms/{id}/sms/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>DELETE</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the room</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the SMS</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "message": "Hello World",
+                            "to_number": "1234567890",
+                            "from_number": "1234567890",
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+    </tr>
+</table>
+
+## Owned / Myself
+
+<table>
+    <tr>
+        <td valign="top" width="50%">
+            <h1>Get Myself</h1>
+            <p>Get the current user</p>
+            <h4>Endpoint</h4>
+            <p><code>/me</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "id": 1,
+                            "name": "John Doe",
+                            "email": "xxx",
+                        },
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>All Unread Messages</h1>
+            <p>Get all unread messages</p>
+            <h4>Endpoint</h4>
+            <p><code>/me/unread-sms</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": [
+                            {
+                                "id": 1,
+                                "message": "Hello World",
+                                "to_number": "1234567890",
+                                "from_number": "1234567890",
+                                "created_at": "2021-08-01T12:00:00.000000Z",
+                            },
+                            {
+                                "id": 2,
+                                "message": "Hello World",
+                                "to_number": "1234567890",
+                                "from_number": "1234567890",
+                                "created_at": "2021-08-01T12:00:00.000000Z",
+                            },
+                        ],
+                    }
+            </code></pre>
+        </td>
+    </tr>
+</table>
+
 
 
 
