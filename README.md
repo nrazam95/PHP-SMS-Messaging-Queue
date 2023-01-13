@@ -824,6 +824,29 @@ Alice->>Server: Request All SMS Messages
             <p><code>/rooms</code></p>
             <h4>Method</h4>
             <p><code>POST</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
+            <h4>Parameters</h4>
+            <p>No parameters required</p>
             <h4>Body Type</h4>
             <table>
                 <tr>
@@ -833,30 +856,23 @@ Alice->>Server: Request All SMS Messages
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>name</td>
+                    <td>to_number</td>
                     <td>string</td>
                     <td>yes</td>
-                    <td>The name of the room</td>
+                    <td>The number to send message to</td>
                 </tr>
                 <tr>
-                    <td>description</td>
+                    <td>message</td>
                     <td>string</td>
                     <td>yes</td>
-                    <td>The description of the room</td>
-                </tr>
-                <tr>
-                    <td>user_id</td>
-                    <td>integer</td>
-                    <td>yes</td>
-                    <td>The id of the user</td>
+                    <td>The message to send</td>
                 </tr>
             </table>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
-                        "name": "Room 1",
-                        "description": "Room 1 description",
-                        "user_id": 1,
+                        "to_number": "60123456789",
+                        "message": "Hello there Alex!!! How are you?"
                     }
             </code></pre>
             <h4>Example Response</h4>
@@ -864,10 +880,21 @@ Alice->>Server: Request All SMS Messages
                     {
                         "status": "success",
                         "data": {
-                            "name": "Room 1",
-                            "description": "Room 1 description",
-                            "user_id": 1,
-                            "created_at": "2021-08-01T12:00:00.000000Z",
+                            "id": 1,
+                            "numbers": [
+                                "60123456789",
+                                "+601131695979"
+                            ],
+                            "created_at": "2023-01-13 05:28:03"
+                        }
+                    }
+            </code></pre>
+            <h4>Example Error Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "error",
+                        "data": {
+                            "message": "Unauthorized"
                         }
                     }
             </code></pre>
@@ -879,6 +906,31 @@ Alice->>Server: Request All SMS Messages
             <p><code>/rooms</code></p>
             <h4>Method</h4>
             <p><code>GET</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
+            <h4>Parameters</h4>
+            <p>No parameters required</p>
+            <h4>Body Type</h4>
+            <p>No body required</p>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {}
@@ -889,18 +941,23 @@ Alice->>Server: Request All SMS Messages
                         "status": "success",
                         "data": [
                             {
-                                "name": "Room 1",
-                                "description": "Room 1 description",
-                                "user_id": 1,
-                                "created_at": "2021-08-01T12:00:00.000000Z",
-                            },
-                            {
-                                "name": "Room 2",
-                                "description": "Room 2 description",
-                                "user_id": 1,
-                                "created_at": "2021-08-01T12:00:00.000000Z",
-                            },
+                                "id": 1,
+                                "numbers": [
+                                    "60123456789",
+                                    "+601131695979"
+                                ],
+                                "created_at": "2023-01-13 05:28:03"
+                            }
                         ]
+                    }
+            </code></pre>
+            <h4>Example Error Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "error",
+                        "data": {
+                            "message": "Unauthorized"
+                        }
                     }
             </code></pre>
         </td>
@@ -911,45 +968,27 @@ Alice->>Server: Request All SMS Messages
             <p><code>/rooms/{id}</code></p>
             <h4>Method</h4>
             <p><code>GET</code></p>
-            <h4>Parameters</h4>
+            <h4>Request Header</h4>
             <table>
                 <tr>
-                    <th>Parameter</th>
+                    <th>Header Type</th>
                     <th>Type</th>
                     <th>Required</th>
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>id</td>
-                    <td>integer</td>
+                    <td>Content-Type</td>
+                    <td>string</td>
                     <td>yes</td>
-                    <td>The id of the room</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
                 </tr>
             </table>
-            <h4>Example Request</h4>
-            <pre><code class="language-javascript">
-                    {}
-            </code></pre>
-            <h4>Example Response</h4>
-            <pre><code class="language-javascript">
-                    {
-                        "status": "success",
-                        "data": {
-                            "name": "Room 1",
-                            "description": "Room 1 description",
-                            "user_id": 1,
-                            "created_at": "2021-08-01T12:00:00.000000Z",
-                        }
-                    }
-            </code></pre>
-        </td>
-        <td valign="top" width="50%">
-            <h1>Update Room</h1>
-            <p>Update a room</p>
-            <h4>Endpoint</h4>
-            <p><code>/rooms/{id}</code></p>
-            <h4>Method</h4>
-            <p><code>PUT</code></p>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -966,50 +1005,23 @@ Alice->>Server: Request All SMS Messages
                 </tr>
             </table>
             <h4>Body Type</h4>
-            <table>
-                <tr>
-                    <th>Parameter</th>
-                    <th>Type</th>
-                    <th>Required</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td>name</td>
-                    <td>string</td>
-                    <td>yes</td>
-                    <td>The name of the room</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>yes</td>
-                    <td>The description of the room</td>
-                </tr>
-                <tr>
-                    <td>user_id</td>
-                    <td>integer</td>
-                    <td>yes</td>
-                    <td>The id of the user</td>
-                </tr>
-            </table>
+            <p>No body required</p>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
-                    {
-                        "name": "Room 1",
-                        "description": "Room 1 description",
-                        "user_id": 1,
-                    }
+                    {}
             </code></pre>
             <h4>Example Response</h4>
             <pre><code class="language-javascript">
                     {
                         "status": "success",
                         "data": {
-                            "name": "Room 1",
-                            "description": "Room 1 description",
-                            "user_id": 1,
-                            "created_at": "2021-08-01T
-                        },
+                            "id": 1,
+                            "numbers": [
+                                "60123456789",
+                                "+601131695979"
+                            ],
+                            "created_at": "2023-01-13 05:28:03"
+                        }
                     }
             </code></pre>
         </td>
@@ -1020,6 +1032,27 @@ Alice->>Server: Request All SMS Messages
             <p><code>/rooms/{id}</code></p>
             <h4>Method</h4>
             <p><code>DELETE</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -1035,6 +1068,8 @@ Alice->>Server: Request All SMS Messages
                     <td>The id of the room</td>
                 </tr>
             </table>
+            <h4>Body Type</h4>
+            <p>No body required</p>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {}
@@ -1043,12 +1078,7 @@ Alice->>Server: Request All SMS Messages
             <pre><code class="language-javascript">
                     {
                         "status": "success",
-                        "data": {
-                            "name": "Room 1",
-                            "description": "Room 1 description",
-                            "user_id": 1,
-                            "created_at": "2021-08-01T12:00:00.000000Z",
-                        }
+                        "data": null
                     }
             </code></pre>
         </td>
