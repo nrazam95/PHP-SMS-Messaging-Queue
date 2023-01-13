@@ -431,6 +431,37 @@ Alice->>Server: Request All SMS Messages
             </code></pre>
         </td>
         <td valign="top" width="50%">
+            <h1>Get Users</h1>
+            <p>Get all users</p>
+            <h4>Endpoint</h4>
+            <p><code>/users</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Parameters</h4>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": [
+                            {
+                                "name": "John Doe",
+                                "email": "xxx",
+                                "created_at": "2021-08-01T12:00:00.000000Z",
+                            },
+                            {
+                                "name": "Jane Doe",
+                                "email": "xxx",
+                                "created_at": "2021-08-01T12:00:00.000000Z",
+                            }
+                        ]
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
             <h1>Update User</h1>
             <p>Update a user</p>
             <h4>Endpoint</h4>
