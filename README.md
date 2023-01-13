@@ -177,28 +177,34 @@ Alice->>Server: Request All SMS Messages
 
 # PHP SMS Messages Queueing Documentation
 
-| Category | Name | Description | Method | Endpoint | 
-|----------|------|-------------|--------|----------|
-| Authentication | Register | Register a new user | POST | /signup |
-| Authentication | Login | Login a user | POST | /login |
-| Authentication | Logout | Logout a user | POST | /logout |
-| User | Delete User | Delete the authenticated user | DELETE | /users |
-| User | Get All Users | Get all users | GET | /users|
-| User | Get User By ID | Get a user by ID | GET | /users/{id} |
-| User | Update User By ID | Update a user by ID | PUT | /users/{id} |
-| User | Delete User By ID | Delete a user by ID | DELETE | /users/{id} |
-| Room | Create Room | Create a new room | POST | /rooms |
-| Room | Get All Rooms | Get all rooms | GET | /rooms |
-| Room | Get Room By ID | Get a room by ID | GET | /rooms/{id} |
-| Room | Update Room By ID | Update a room by ID | PUT | /rooms/{id} |
-| Room | Delete Room By ID | Delete a room by ID | DELETE | /rooms/{id} |
-| SMS | Send SMS Message | Send an SMS message | POST | /rooms/{id}/ |
-| SMS | Get All SMS Messages | Get all SMS messages | GET | /rooms/{id}/ |
-| SMS | Get SMS Message By ID | Get an SMS message by ID | GET | /rooms/{id}/sms/{sms_id} |
-| SMS | Update SMS Message By ID | Update an SMS message by ID | PUT | /rooms/{id}/sms/{sms_id} |
-| SMS | Delete SMS Message By ID | Delete an SMS message by ID | DELETE | /rooms/{id}/sms/{sms_id} |
-| MySelf | Get Myself | Get the authenticated user | GET | /me |
-| MySelf | All Unread SMS Messages | Get all unread SMS messages | GET | /me/unread-sms |
+| Category | Name | Description | Method | Endpoint | Security |
+|----------|------|-------------|--------|----------|----------|
+| Authentication | Register | Register a new user | POST | /signup | No JWT |
+| Authentication | Login | Login a user | POST | /login | No JWT |
+| Authentication | Logout | Logout a user | POST | /logout | JWT |
+| User | Delete User | Delete the authenticated user | DELETE | /users | JWT |
+| User | Get All Users | Get all users | GET | /users| JWT |
+| User | Get User By ID | Get a user by ID | GET | /users/{id} | JWT |
+| User | Update User By ID | Update a user by ID | PUT | /users/{id} | JWT |
+| User | Delete User By ID | Delete a user by ID | DELETE | /users/{id} | JWT |
+| Room | Create Room | Create a new room | POST | /rooms | JWT |
+| Room | Get All Rooms | Get all rooms | GET | /rooms | JWT |
+| Room | Get Room By ID | Get a room by ID | GET | /rooms/{id} | JWT |
+| Room | Update Room By ID | Update a room by ID | PUT | /rooms/{id} | JWT |
+| Room | Delete Room By ID | Delete a room by ID | DELETE | /rooms/{id} | JWT |
+| SMS | Send SMS Message | Send an SMS message | POST | /rooms/{id}/ | JWT |
+| SMS | Get All SMS Messages | Get all SMS messages | GET | /rooms/{id}/ | JWT |
+| SMS | Get SMS Message By ID | Get an SMS message by ID | GET | /rooms/{id}/sms/{sms_id} | JWT |
+| SMS | Update SMS Message By ID | Update an SMS message by ID | PUT | /rooms/{id}/sms/{sms_id} | JWT |
+| SMS | Delete SMS Message By ID | Delete an SMS message by ID | DELETE | /rooms/{id}/sms/{sms_id} | JWT |
+| MySelf | Get Myself | Get the authenticated user | GET | /me | JWT |
+| MySelf | All Unread SMS Messages | Get all unread SMS messages | GET | /me/unread-sms | JWT |
+
+***Notice:*** *The endpoints that require JWT authentication, you need to pass the JWT token in the header of the request.*
+
+***What is JWT Token?*** *JWT is a standard for creating access tokens for an application. The token is signed by the server using a secret key and contains information about the user. The token is sent to the client and the client sends it back to the server in the Authorization header.*
+
+***Example:*** *Authorization: Bearer {JWT_TOKEN}*
 
 ## Authentication
 
