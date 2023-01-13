@@ -23,27 +23,6 @@ services:
         bash backend_start.sh
     networks:
       - basic
-  frontend:
-    build: 
-      context: ./
-      dockerfile: ./docker/frontend/Dockerfile
-    container_name: frontend
-    image: sms_messaging/frontend:latest
-    restart: always
-    ports:
-      - 8080:8080
-    volumes:
-      - ./:/sms_messaging/:rw
-      - ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:rw
-    environment:
-      PYTHONUNBUFFERED: 1
-    command:
-      - /bin/bash
-      - -c
-      - |
-        bash frontend_start.sh
-    networks:
-      - basic
 
 
 

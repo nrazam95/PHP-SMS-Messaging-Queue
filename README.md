@@ -43,7 +43,7 @@ Use of proper API methods for each endpoint (GET, POST, etc)
 
 |         | Description | Run on Local | Run on Docker |
 |---------|-------------|--------------|---------------|
-| Full-Stack Socket.io | This is a full-stack application that uses Socket.io to send SMS messages to the client. |```php start.php start```|```docker compose up -d```|
+| Full-Stack Socket.io | This is a full-stack application that uses Socket.io to send SMS messages to the client. |```php start.php start```|``` -- not available --```|
 | API | This is a simple API application that uses a queue to send SMS messages to the client. |```php -S 0.0.0.0:8000 server.php```|```docker compose up -d```|
 
 
@@ -88,7 +88,7 @@ composer install
 php -S localhost:8000 server.php
 ```
 
-## Installation & Run on Docker (Full-Stack Socket.io && API)
+## Installation & Run on Docker (API)
 
 1. Clone the repository
 

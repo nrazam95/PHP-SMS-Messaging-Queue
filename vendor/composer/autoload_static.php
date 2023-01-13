@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8dee1a6473b0eebc52dec99a74b49924
+class ComposerStaticInita9f4c9f6842438c46c5a30d3a0c1d3a1
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -27,6 +27,10 @@ class ComposerStaticInit8dee1a6473b0eebc52dec99a74b49924
         array (
             'PhpOption\\' => 10,
             'PHPSocketIO\\' => 12,
+        ),
+        'K' => 
+        array (
+            'Kriss\\WebmanDocker\\' => 19,
         ),
         'G' => 
         array (
@@ -67,6 +71,10 @@ class ComposerStaticInit8dee1a6473b0eebc52dec99a74b49924
         array (
             0 => __DIR__ . '/..' . '/workerman/phpsocket.io/src',
         ),
+        'Kriss\\WebmanDocker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webman-tech/docker/src',
+        ),
         'GrahamCampbell\\ResultType\\' => 
         array (
             0 => __DIR__ . '/..' . '/graham-campbell/result-type/src',
@@ -93,9 +101,9 @@ class ComposerStaticInit8dee1a6473b0eebc52dec99a74b49924
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8dee1a6473b0eebc52dec99a74b49924::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8dee1a6473b0eebc52dec99a74b49924::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit8dee1a6473b0eebc52dec99a74b49924::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita9f4c9f6842438c46c5a30d3a0c1d3a1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita9f4c9f6842438c46c5a30d3a0c1d3a1::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInita9f4c9f6842438c46c5a30d3a0c1d3a1::$classMap;
 
         }, null, ClassLoader::class);
     }

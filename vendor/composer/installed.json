@@ -488,6 +488,40 @@
             "install-path": "../vlucas/phpdotenv"
         },
         {
+            "name": "webman-tech/docker",
+            "version": "v2.0.0",
+            "version_normalized": "2.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-tech/docker.git",
+                "reference": "701808515519423e334b45896efd9b6104d3d824"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-tech/docker/zipball/701808515519423e334b45896efd9b6104d3d824",
+                "reference": "701808515519423e334b45896efd9b6104d3d824",
+                "shasum": ""
+            },
+            "time": "2022-09-18T14:22:31+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Kriss\\WebmanDocker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "docker for webman app",
+            "support": {
+                "issues": "https://github.com/webman-tech/docker/issues",
+                "source": "https://github.com/webman-tech/docker/tree/v2.0.0"
+            },
+            "install-path": "../webman-tech/docker"
+        },
+        {
             "name": "workerman/channel",
             "version": "v1.1.0",
             "version_normalized": "1.1.0.0",
@@ -577,17 +611,17 @@
         },
         {
             "name": "workerman/workerman",
-            "version": "v4.1.5",
-            "version_normalized": "4.1.5.0",
+            "version": "v4.1.6",
+            "version_normalized": "4.1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/workerman.git",
-                "reference": "16bcfc2c7574feea46cdadaaa8ae73f14d464b21"
+                "reference": "a278ddcc78040e5d1e25ca2022eeb7ccfdccc86b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/workerman/zipball/16bcfc2c7574feea46cdadaaa8ae73f14d464b21",
-                "reference": "16bcfc2c7574feea46cdadaaa8ae73f14d464b21",
+                "url": "https://api.github.com/repos/walkor/workerman/zipball/a278ddcc78040e5d1e25ca2022eeb7ccfdccc86b",
+                "reference": "a278ddcc78040e5d1e25ca2022eeb7ccfdccc86b",
                 "shasum": ""
             },
             "require": {
@@ -596,7 +630,7 @@
             "suggest": {
                 "ext-event": "For better performance. "
             },
-            "time": "2022-12-14T11:58:06+00:00",
+            "time": "2023-01-13T02:17:21+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {

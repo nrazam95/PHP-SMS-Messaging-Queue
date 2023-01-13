@@ -12,6 +12,7 @@ return array(
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'PHPSocketIO\\' => array($vendorDir . '/workerman/phpsocket.io/src'),
+    'Kriss\\WebmanDocker\\' => array($vendorDir . '/webman-tech/docker/src'),
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Channel\\' => array($vendorDir . '/workerman/channel/src'),
