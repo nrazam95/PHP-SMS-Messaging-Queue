@@ -217,7 +217,23 @@ Alice->>Server: Request All SMS Messages
             <p><code>/signup</code></p>
             <h4>Method</h4>
             <p><code>POST</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
+            <p>No Parameters Required</p>
             <h4>Body</h4>
             <table>
                 <tr>
@@ -249,21 +265,6 @@ Alice->>Server: Request All SMS Messages
                     <td>string</td>
                     <td>yes</td>
                     <td>The password of the user</td>
-                </tr>
-            </table>
-            <h4>Request Header</h4>
-            <table>
-                <tr>
-                    <th>Header Type</th>
-                    <th>Type</th>
-                    <th>Required</th>
-                    <th>Description</th>
-                </tr>
-                <tr>
-                    <td>Content-Type</td>
-                    <td>string</td>
-                    <td>yes</td>
-                    <td>application/json</td>
                 </tr>
             </table>
             <h4>Example Request</h4>
@@ -301,7 +302,6 @@ Alice->>Server: Request All SMS Messages
             <p><code>/login</code></p>
             <h4>Method</h4>
             <p><code>POST</code></p>
-            <h4>Parameters</h4>
             <h4>Request Header</h4>
             <table>
                 <tr>
@@ -317,16 +317,27 @@ Alice->>Server: Request All SMS Messages
                     <td>application/json</td>
                 </tr>
             </table>
+            <h4>Parameters</h4>
+            <p>No Parameters Required</p>
+            <h4>Body</h4>
             <table>
                 <tr>
-                    <td><code>email</code></td>
-                    <td><code>string</code></td>
-                    <td><code>required</code></td>
+                    <th>Body Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
                 </tr>
                 <tr>
-                    <td><code>password</code></td>
-                    <td><code>string</code></td>
-                    <td><code>required</code></td>
+                    <td>email</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The email of the user</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The password of the user</td>
                 </tr>
             </table>
             <h4>Notes</h4>
@@ -398,7 +409,7 @@ Alice->>Server: Request All SMS Messages
             <pre><code class="language-javascript">
                     {
                         "status": "success",
-                        "data": "User logged out successfully",
+                        "data": "Logged out successfully"
                     }
             </code></pre>
         </td>
