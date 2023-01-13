@@ -698,12 +698,82 @@ Alice->>Server: Request All SMS Messages
             </code></pre>
         </td>
         <td valign="top" width="50%">
-            <h1>Get Room</h1>
-            <p>Get a room</p>
+            <h1>Update Room</h1>
+            <p>Update a room</p>
             <h4>Endpoint</h4>
             <p><code>/rooms/{id}</code></p>
             <h4>Method</h4>
-            <p><code>GET</code></p>
+            <p><code>PUT</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the room</td>
+                </tr>
+            </table>
+            <h4>Body Type</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The name of the room</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The description of the room</td>
+                </tr>
+                <tr>
+                    <td>user_id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the user</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "name": "Room 1",
+                        "description": "Room 1 description",
+                        "user_id": 1,
+                    }
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "name": "Room 1",
+                            "description": "Room 1 description",
+                            "user_id": 1,
+                            "created_at": "2021-08-01T
+                        },
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Delete Room</h1>
+            <p>Delete a room</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>DELETE</code></p>
             <h4>Parameters</h4>
             <table>
                 <tr>
