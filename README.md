@@ -427,7 +427,30 @@ Alice->>Server: Request All SMS Messages
             <p><code>/users</code></p>
             <h4>Method</h4>
             <p><code>POST</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
+            <p>No Parameters Required</p>
+            <h4>Body</h4>
             <table>
                 <tr>
                     <th>Parameter</th>
@@ -463,19 +486,40 @@ Alice->>Server: Request All SMS Messages
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
-                        "name": "John Doe",
-                        "email": "xxx@xxx.com",
-                        "phone": "0123456789",
-                        }
+                        "name": "Glade",
+                        "email": "glade@gmail.com",
+                        "password": "1234",
+                        "phone": "+60123456789"
+                    }
             </code></pre>
             <h4>Example Response</h4>
             <pre><code class="language-javascript">
                     {
                         "status": "success",
                         "data": {
-                            "name": "John Doe",
-                            "email": "xxx",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
+                            "id": 2,
+                            "name": "Glade",
+                            "email": "glade@gmail.com",
+                            "password": "1234",
+                            "created_at": "2023-01-13 05:12:22"
+                        }
+                    }
+            </code></pre>
+            <h4>Authorization Error Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "error",
+                        "data": {
+                            "message": "Unauthorized"
+                        }
+                    }
+            </code></pre>
+            <h4>Error Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "error",
+                        "data": {
+                            "message": "User Exists"
                         }
                     }
             </code></pre>
