@@ -1628,7 +1628,12 @@ Alice->>Server: Request All SMS Messages
 
 You can import the postman collection from the directory `POSTMANPHPSMS.json` to test the API.
 
+<img src="https://i.imgur.com/0Z7Z7Zm.png" alt="Postman" width="100%"/>
 
+<div align="center">
+    <h1>Thank you for reading</h1>
+    <h3>Happy Coding</h3>
+</div>
 
 
 
