@@ -567,6 +567,178 @@ Alice->>Server: Request All SMS Messages
     </tr>
 </table>
 
+## Room
+
+<table>
+    <tr>
+        <td valign="top" width="50%">
+            <h1>Create Room</h1>
+            <p>Create a room</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms</code></p>
+            <h4>Method</h4>
+            <p><code>POST</code></p>
+            <h4>Body Type</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The name of the room</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The description of the room</td>
+                </tr>
+                <tr>
+                    <td>user_id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the user</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "name": "Room 1",
+                        "description": "Room 1 description",
+                        "user_id": 1,
+                    }
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "name": "Room 1",
+                            "description": "Room 1 description",
+                            "user_id": 1,
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Get Rooms</h1>
+            <p>Get all rooms</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": [
+                            {
+                                "name": "Room 1",
+                                "description": "Room 1 description",
+                                "user_id": 1,
+                                "created_at": "2021-08-01T12:00:00.000000Z",
+                            },
+                            {
+                                "name": "Room 2",
+                                "description": "Room 2 description",
+                                "user_id": 1,
+                                "created_at": "2021-08-01T12:00:00.000000Z",
+                            },
+                        ]
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Get Room</h1>
+            <p>Get a room</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the room</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "name": "Room 1",
+                            "description": "Room 1 description",
+                            "user_id": 1,
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Get Room</h1>
+            <p>Get a room</p>
+            <h4>Endpoint</h4>
+            <p><code>/rooms/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the room</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "name": "Room 1",
+                            "description": "Room 1 description",
+                            "user_id": 1,
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+    </tr>
+</table>
+
 
 
 
