@@ -51,6 +51,8 @@ class User
                 $u->name = $user['name'];
                 $u->email = $user['email'];
                 $u->phone = $user['phone'];
+                $u->password = $user['password'];
+                $u->created_at = $user['created_at'];
             }
             return $u;
         }, $old_users);
@@ -88,6 +90,11 @@ class User
 
             $users = array_map(function ($user) {
                 $user->created_at = strtotime($user->created_at);
+                return $user;
+            }, $users);
+            // change back to date format
+            $users = array_map(function ($user) {
+                $user->created_at = date('Y-m-d H:i:s', $user->created_at);
                 return $user;
             }, $users);
             return $users;

@@ -60,6 +60,12 @@ class MessageQueue
                 $message->created_at = strtotime($message->created_at);
                 return $message;
             }, $messages);
+
+            // change back date
+            $messages = array_map(function ($message) {
+                $message->created_at = date('Y-m-d H:i:s', $message->created_at);
+                return $message;
+            }, $messages);
             return $messages;
         } else {
             fclose($file);
@@ -110,6 +116,12 @@ class MessageQueue
             // sort by created_at
             $smses = array_map(function ($sms) {
                 $sms->created_at = strtotime($sms->created_at);
+                return $sms;
+            }, $smses);
+
+            // change back date
+            $smses = array_map(function ($sms) {
+                $sms->created_at = date('Y-m-d H:i:s', $sms->created_at);
                 return $sms;
             }, $smses);
             return $smses;

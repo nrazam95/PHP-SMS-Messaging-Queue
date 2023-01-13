@@ -165,6 +165,7 @@ $router->get('/me/unread-sms', function($matches, $query, $body, $headers, $user
             'phone' => $user->phone,
         ));
         $total = count($data);
+
         foreach ($data as $key => $value) {
             $strip = new SMSSearchByIdModel(array(
                 'id' => $value->id,
@@ -247,11 +248,16 @@ $router->put('/users/{id}', function($matches, $query, $body, $headers, $user) {
         $user_services = new UserService();
         $authorization->authorize($user);
 
+        $input['id'] = $matches[0];
+        $data = $user_services->getUserById($input);
+
         $data = $user_services->editUser(array(
-            'id' => $matches[0],
+            'id' => $data->id,
             'name' => $body['name'],
             'email' => $body['email'],
             'phone' => $body['phone'],
+            'password' => $data->password,
+            'created_at' => $data->created_at,
         ));
 
         return array(
@@ -453,6 +459,10 @@ $router->get('/rooms/{id}/sms', function($matches, $query, $body, $headers, $use
             'room_id' => $matches[0],
         ));
 
+        if (empty($data['smses'])) {
+            throw new Exception('No sms found');
+        }
+
         foreach ($data['smses'] as $key => $value) {
             $strip = new SMSSearchByIdModel(array(
                 'id' => $value->id,
@@ -465,7 +475,7 @@ $router->get('/rooms/{id}/sms', function($matches, $query, $body, $headers, $use
             $data['smses'][$key] = $strip->toObject();
 
             if ($value->user_id == $user->id) {
-                $data['smses'][$key]->from = 'me';
+                $data['smses'][$key]->from = 'Me';
             } else {
                 $data['smses'][$key]->from = $strip->getSender($value->user_id)->name;
             }
@@ -499,6 +509,10 @@ $router->get('/rooms/{id}/sms/{sms_id}', function($matches, $query, $body, $head
             'room_id' => $matches[0],
             'sms_id' => $matches[1],
         ));
+
+        if (empty($data)) {
+            throw new Exception('No sms found');
+        }
 
         $strip = new SMSSearchByIdModel(array(
             'id' => $data->id,

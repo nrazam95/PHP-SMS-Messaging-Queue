@@ -73,9 +73,16 @@ class Room
             fclose($file);
 
             // Sort rooms by created_at
-            usort($rooms, function ($a, $b) {
-                return $a->created_at < $b->created_at;
-            });
+            $rooms = array_map(function ($room) {
+                $room->created_at = strtotime($room->created_at);
+                return $room;
+            }, $rooms);
+
+            // change created_at to date
+            $rooms = array_map(function ($room) {
+                $room->created_at = date('Y-m-d H:i:s', $room->created_at);
+                return $room;
+            }, $rooms);
             return $rooms;
         } else {
             fclose($file);

@@ -1096,6 +1096,27 @@ Alice->>Server: Request All SMS Messages
             <p><code>/rooms/{id}/sms</code></p>
             <h4>Method</h4>
             <p><code>POST</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -1120,12 +1141,6 @@ Alice->>Server: Request All SMS Messages
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>to_number</td>
-                    <td>string</td>
-                    <td>yes</td>
-                    <td>The phone number to send the SMS to</td>
-                </tr>
-                <tr>
                     <td>message</td>
                     <td>string</td>
                     <td>yes</td>
@@ -1135,7 +1150,7 @@ Alice->>Server: Request All SMS Messages
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
-                        "message": "Hello World",
+                        "message": "Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!"
                     }
             </code></pre>
             <h4>Example Response</h4>
@@ -1143,10 +1158,12 @@ Alice->>Server: Request All SMS Messages
                     {
                         "status": "success",
                         "data": {
-                            "message": "Hello World",
-                            "to_number": "1234567890",
-                            "from_number": "1234567890",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
+                            "id": 1,
+                            "room_id": 1,
+                            "user_id": 1,
+                            "message": "Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!",
+                            "status": "unread",
+                            "created_at": "2023-01-13 06:25:06"
                         }
                     }
             </code></pre>
@@ -1155,9 +1172,30 @@ Alice->>Server: Request All SMS Messages
             <h1>Get SMS</h1>
             <p>Get an SMS</p>
             <h4>Endpoint</h4>
-            <p><code>/rooms/{id}/sms/{id}</code></p>
+            <p><code>/rooms/{id}/sms/{sms_id}</code></p>
             <h4>Method</h4>
             <p><code>GET</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -1173,7 +1211,7 @@ Alice->>Server: Request All SMS Messages
                     <td>The id of the room</td>
                 </tr>
                 <tr>
-                    <td>id</td>
+                    <td>sms_id</td>
                     <td>integer</td>
                     <td>yes</td>
                     <td>The id of the SMS</td>
@@ -1188,10 +1226,28 @@ Alice->>Server: Request All SMS Messages
                     {
                         "status": "success",
                         "data": {
-                            "message": "Hello World",
-                            "to_number": "1234567890",
-                            "from_number": "1234567890",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
+                            "id": 1,
+                            "room_id": 1,
+                            "user_id": 1,
+                            "status": "unread",
+                            "message": "Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!",
+                            "created_at": "2023-01-13 06:25:06",
+                            "room": {
+                                "id": 1,
+                                "numbers": [
+                                    "60123456789",
+                                    "+601131695979"
+                                ],
+                                "created_at": "2023-01-13 05:28:03"
+                            },
+                            "sender": {
+                                "id": 1,
+                                "name": "Vochelle",
+                                "email": "vochelle@gmail.com",
+                                "phone": "+601987654321",
+                                "created_at": "2023-01-13 05:44:17"
+                            },
+                            "from": "me"
                         }
                     }
             </code></pre>
@@ -1203,6 +1259,27 @@ Alice->>Server: Request All SMS Messages
             <p><code>/rooms/{id}/sms</code></p>
             <h4>Method</h4>
             <p><code>GET</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -1226,20 +1303,34 @@ Alice->>Server: Request All SMS Messages
             <pre><code class="language-javascript">
                     {
                         "status": "success",
-                        "data": [
-                            {
-                                "message": "Hello World",
-                                "to_number": "1234567890",
-                                "from_number": "1234567890",
-                                "created_at": "2021-08-01T12:00:00.000000Z",
-                            },
-                            {
-                                "message": "Hello World",
-                                "to_number": "1234567890",
-                                "from_number": "1234567890",
-                                "created_at": "2021-08-01T12:00:00.000000Z",
-                            }
-                        ]
+                        "data": {
+                            "smses": [
+                                {
+                                    "id": 1,
+                                    "room_id": 1,
+                                    "user_id": 1,
+                                    "status": "unread",
+                                    "message": "Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!",
+                                    "created_at": "2023-01-13 06:25:06",
+                                    "room": {
+                                        "id": 1,
+                                        "numbers": [
+                                            "60123456789",
+                                            "+601131695979"
+                                        ],
+                                        "created_at": "2023-01-13 05:28:03"
+                                    },
+                                    "sender": {
+                                        "id": 1,
+                                        "name": "Vochelle",
+                                        "email": "vochelle@gmail.com",
+                                        "phone": "+601987654321",
+                                        "created_at": "2023-01-13 05:44:17"
+                                    },
+                                    "from": "me"
+                                }
+                            ]
+                        }
                     }
             </code></pre>
         </td>
@@ -1247,9 +1338,30 @@ Alice->>Server: Request All SMS Messages
             <h1>Update SMS</h1>
             <p>Update an SMS</p>
             <h4>Endpoint</h4>
-            <p><code>/rooms/{id}/sms/{id}</code></p>
+            <p><code>/rooms/{id}/sms/{sms_id}</code></p>
             <h4>Method</h4>
             <p><code>PUT</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -1265,7 +1377,7 @@ Alice->>Server: Request All SMS Messages
                     <td>The id of the room</td>
                 </tr>
                 <tr>
-                    <td>id</td>
+                    <td>sms_id</td>
                     <td>integer</td>
                     <td>yes</td>
                     <td>The id of the SMS</td>
@@ -1280,12 +1392,6 @@ Alice->>Server: Request All SMS Messages
                     <th>Description</th>
                 </tr>
                 <tr>
-                    <td>to_number</td>
-                    <td>string</td>
-                    <td>yes</td>
-                    <td>The phone number to send the SMS to</td>
-                </tr>
-                <tr>
                     <td>message</td>
                     <td>string</td>
                     <td>yes</td>
@@ -1295,19 +1401,14 @@ Alice->>Server: Request All SMS Messages
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
-                        "message": "Hello World",
+                        "message": "Bhbhbhbhbhb In a big win for you, the consumer, the FCA (Financial Conduct Authority) has set out further legislation to protect customers"
                     }
             </code></pre>
             <h4>Example Response</h4>
             <pre><code class="language-javascript">
                     {
                         "status": "success",
-                        "data": {
-                            "message": "Hello World",
-                            "to_number": "1234567890",
-                            "from_number": "1234567890",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
-                        }
+                        "data": null
                     }
             </code></pre>
         </td>
@@ -1315,9 +1416,30 @@ Alice->>Server: Request All SMS Messages
             <h1>Delete SMS</h1>
             <p>Delete an SMS</p>
             <h4>Endpoint</h4>
-            <p><code>/rooms/{id}/sms/{id}</code></p>
+            <p><code>/rooms/{id}/sms/{sms_id}</code></p>
             <h4>Method</h4>
             <p><code>DELETE</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -1333,44 +1455,13 @@ Alice->>Server: Request All SMS Messages
                     <td>The id of the room</td>
                 </tr>
                 <tr>
-                    <td>id</td>
+                    <td>sms_id</td>
                     <td>integer</td>
                     <td>yes</td>
                     <td>The id of the SMS</td>
                 </tr>
             </table>
-            <h4>Example Request</h4>
-            <pre><code class="language-javascript">
-                    {}
-            </code></pre>
-            <h4>Example Response</h4>
-            <pre><code class="language-javascript">
-                    {
-                        "status": "success",
-                        "data": {
-                            "message": "Hello World",
-                            "to_number": "1234567890",
-                            "from_number": "1234567890",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
-                        }
-                    }
-            </code></pre>
-        </td>
-    </tr>
-</table>
-
-## Owned / Myself
-
-<table>
-    <tr>
-        <td valign="top" width="50%">
-            <h1>Get Myself</h1>
-            <p>Get the current user</p>
-            <h4>Endpoint</h4>
-            <p><code>/me</code></p>
-            <h4>Method</h4>
-            <p><code>GET</code></p>
-            <h4>Parameters</h4>
+            <h4>Body Type</h4>
             <table>
                 <tr>
                     <th>Parameter</th>
@@ -1389,9 +1480,69 @@ Alice->>Server: Request All SMS Messages
                         "status": "success",
                         "data": {
                             "id": 1,
-                            "name": "John Doe",
-                            "email": "xxx",
-                        },
+                            "room_id": 1,
+                            "user_id": 1,
+                            "message": "Bhbhbhbhbhb In a big win for you, the consumer, the FCA (Financial Conduct Authority) has set out further legislation to protect customers",
+                            "status": "unread",
+                            "created_at": "2023-01-13 06:25:06"
+                        }
+                    }
+            </code></pre>
+        </td>
+    </tr>
+</table>
+
+## Owned / Myself
+
+<table>
+    <tr>
+        <td valign="top" width="50%">
+            <h1>Get Myself</h1>
+            <p>Get the current user</p>
+            <h4>Endpoint</h4>
+            <p><code>/me</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
+            <h4>Parameters</h4>
+            <p>None</p>
+            <h4>Body Type</h4>
+            <p>None</p>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "id": 1,
+                            "name": "Vochelle",
+                            "email": "vochelle@gmail.com",
+                            "password": "1234",
+                            "created_at": "2023-01-13 05:44:17"
+                        }
                     }
             </code></pre>
         </td>
@@ -1402,6 +1553,27 @@ Alice->>Server: Request All SMS Messages
             <p><code>/me/unread-sms</code></p>
             <h4>Method</h4>
             <p><code>GET</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -1419,22 +1591,33 @@ Alice->>Server: Request All SMS Messages
             <pre><code class="language-javascript">
                     {
                         "status": "success",
+                        "total": 1,
                         "data": [
                             {
-                                "id": 1,
-                                "message": "Hello World",
-                                "to_number": "1234567890",
-                                "from_number": "1234567890",
-                                "created_at": "2021-08-01T12:00:00.000000Z",
-                            },
-                            {
-                                "id": 2,
-                                "message": "Hello World",
-                                "to_number": "1234567890",
-                                "from_number": "1234567890",
-                                "created_at": "2021-08-01T12:00:00.000000Z",
-                            },
-                        ],
+                                "id": 3,
+                                "room_id": 1,
+                                "user_id": 2,
+                                "status": "unread",
+                                "message": "Bhbhbhbhbhb In a big win for you, the consumer, the FCA (Financial Conduct Authority) has set out further legislation to protect customers",
+                                "created_at": "2023-01-13 06:44:21",
+                                "room": {
+                                    "id": 1,
+                                    "numbers": [
+                                        "+60123456789",
+                                        "+601987654321"
+                                    ],
+                                    "created_at": "2023-01-13 05:28:03"
+                                },
+                                "sender": {
+                                    "id": 2,
+                                    "name": "Glade Mia",
+                                    "email": "glade@gmail.com",
+                                    "phone": "+60123456789",
+                                    "created_at": "2023-01-13 05:44:32"
+                                },
+                                "from": "Glade Mia"
+                            }
+                        ]
                     }
             </code></pre>
         </td>

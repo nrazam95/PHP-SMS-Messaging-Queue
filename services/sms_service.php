@@ -132,8 +132,8 @@ class SmsService
 
     public function allMyUnreadSMS($data)
     {
-        $rooms = new RoomService();
-        $rooms = $rooms->getRooms();
+        $room_service = new RoomService();
+        $rooms = $room_service->getRooms();
         $smses = $this->getSmses();
         $my_smses = array();
 
