@@ -531,6 +531,27 @@ Alice->>Server: Request All SMS Messages
             <p><code>/users/{id}</code></p>
             <h4>Method</h4>
             <p><code>GET</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -546,6 +567,8 @@ Alice->>Server: Request All SMS Messages
                     <td>The id of the user</td>
                 </tr>
             </table>
+            <h4>Body</h4>
+            <p>No Body Required</p>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {}
@@ -555,9 +578,12 @@ Alice->>Server: Request All SMS Messages
                     {
                         "status": "success",
                         "data": {
-                            "name": "John Doe",
-                            "email": "xxx",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
+                            "id": 1,
+                            "name": "Vochelle",
+                            "email": "vochelle@gmail.com",
+                            "password": "1234",
+                            "phone": "+601987654321",
+                            "created_at": 1673585917
                         }
                     }
             </code></pre>
@@ -569,7 +595,31 @@ Alice->>Server: Request All SMS Messages
             <p><code>/users</code></p>
             <h4>Method</h4>
             <p><code>GET</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
+            <p>No Parameters Required</p>
+            <h4>Body</h4>
+            <p>No Body Required</p>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {}
@@ -580,14 +630,20 @@ Alice->>Server: Request All SMS Messages
                         "status": "success",
                         "data": [
                             {
-                                "name": "John Doe",
-                                "email": "xxx",
-                                "created_at": "2021-08-01T12:00:00.000000Z",
+                                "id": 1,
+                                "name": "Vochelle",
+                                "email": "vochelle@gmail.com",
+                                "password": "1234",
+                                "phone": "+601987654321",
+                                "created_at": 1673585917
                             },
                             {
-                                "name": "Jane Doe",
-                                "email": "xxx",
-                                "created_at": "2021-08-01T12:00:00.000000Z",
+                                "id": 2,
+                                "name": "Glade",
+                                "email": "glade@gmail.com",
+                                "password": "1234",
+                                "phone": "+60123456789",
+                                "created_at": 1673586742
                             }
                         ]
                     }
@@ -600,6 +656,27 @@ Alice->>Server: Request All SMS Messages
             <p><code>/users/{id}</code></p>
             <h4>Method</h4>
             <p><code>PUT</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -654,10 +731,15 @@ Alice->>Server: Request All SMS Messages
             <pre><code class="language-javascript">
                     {
                         "status": "success",
+                        "data": null
+                    }
+            </code></pre>
+            <h4>Example Error Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "error",
                         "data": {
-                            "name": "John Doe",
-                            "email": "xxx",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
+                            "message": "Unauthorized"
                         }
                     }
             </code></pre>
@@ -669,6 +751,27 @@ Alice->>Server: Request All SMS Messages
             <p><code>/users/{id}</code></p>
             <h4>Method</h4>
             <p><code>DELETE</code></p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Parameters</h4>
             <table>
                 <tr>
@@ -684,6 +787,8 @@ Alice->>Server: Request All SMS Messages
                     <td>The id of the user</td>
                 </tr>
             </table>
+            <h4>Body Type</h4>
+            <p>No body required</p>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {}
@@ -692,7 +797,16 @@ Alice->>Server: Request All SMS Messages
             <pre><code class="language-javascript">
                     {
                         "status": "success",
-                        "data": "User deleted successfully",
+                        "data": null
+                    }
+            </code></pre>
+            <h4>Example Error Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "error",
+                        "data": {
+                            "message": "Unauthorized"
+                        }
                     }
             </code></pre>
         </td>
