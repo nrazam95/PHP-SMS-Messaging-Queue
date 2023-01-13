@@ -197,6 +197,8 @@ Alice->>Server: Request All SMS Messages
 | SMS | Get SMS Message By ID | Get an SMS message by ID | GET | /rooms/{id}/sms/{sms_id} |
 | SMS | Update SMS Message By ID | Update an SMS message by ID | PUT | /rooms/{id}/sms/{sms_id} |
 | SMS | Delete SMS Message By ID | Delete an SMS message by ID | DELETE | /rooms/{id}/sms/{sms_id} |
+| MySelf | Get Myself | Get the authenticated user | GET | /me |
+| MySelf | All Unread SMS Messages | Get all unread SMS messages | GET | /me/unread-sms |
 
 ## Authentication
 
@@ -327,6 +329,209 @@ Alice->>Server: Request All SMS Messages
 </table>
 
 ## User
+
+<table>
+    <tr>
+        <td valign="top" width="50%">
+            <h1>Create User</h1>
+            <p>Create a new user</p>
+            <h4>Endpoint</h4>
+            <p><code>/users</code></p>
+            <h4>Method</h4>
+            <p><code>POST</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The name of the user</td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The email of the user</td>
+                </tr>
+                <tr>
+                    <td>phone</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The phone number of the user</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The password of the user</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "name": "John Doe",
+                        "email": "xxx@xxx.com",
+                        "phone": "0123456789",
+                        }
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "name": "John Doe",
+                            "email": "xxx",
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Get User</h1>
+            <p>Get a user</p>
+            <h4>Endpoint</h4>
+            <p><code>/users/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>GET</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the user</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "name": "John Doe",
+                            "email": "xxx",
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Update User</h1>
+            <p>Update a user</p>
+            <h4>Endpoint</h4>
+            <p><code>/users/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>PUT</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the user</td>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The name of the user</td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The email of the user</td>
+                </tr>
+                <tr>
+                    <td>phone</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The phone number of the user</td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>The password of the user</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "name": "John Doe",
+                        "email": "xxx",
+                        "phone": "0123456789",
+                        }
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": {
+                            "name": "John Doe",
+                            "email": "xxx",
+                            "created_at": "2021-08-01T12:00:00.000000Z",
+                        }
+                    }
+            </code></pre>
+        </td>
+        <td valign="top" width="50%">
+            <h1>Delete User</h1>
+            <p>Delete a user</p>
+            <h4>Endpoint</h4>
+            <p><code>/users/{id}</code></p>
+            <h4>Method</h4>
+            <p><code>DELETE</code></p>
+            <h4>Parameters</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>integer</td>
+                    <td>yes</td>
+                    <td>The id of the user</td>
+                </tr>
+            </table>
+            <h4>Example Request</h4>
+            <pre><code class="language-javascript">
+                    {}
+            </code></pre>
+            <h4>Example Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "success",
+                        "data": "User deleted successfully",
+                    }
+            </code></pre>
+        </td>
+    </tr>
+</table>
 
 
 
