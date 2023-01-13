@@ -1,5 +1,6 @@
 rooms.json
-users.json/
+/users.json
+/sms.json
 
 .env
-vendor/
+/vendor

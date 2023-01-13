@@ -1,0 +1,1884 @@
+{
+	"info": {
+		"_postman_id": "9c282111-4f85-4b4a-b96d-1b88d2f766b8",
+		"name": "PHP SMS Messaging",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16237826"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Xela\",\n    \"email\": \"wissenhirte@gmail.com\",\n    \"password\": \"1234\",\n    \"phone\": \"+60112345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "hello",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Glade\",\n    \"email\": \"glade@gmail.com\",\n    \"password\": \"1234\",\n    \"phone\": \"+60123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "hello",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:12:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"data\": {\n        \"message\": \"User Exists\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Find By ID",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:16:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Vochelle\",\n            \"email\": \"vochelle@gmail.com\",\n            \"password\": \"1234\",\n            \"phone\": \"+601987654321\",\n            \"created_at\": 1673585917\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Glade\",\n            \"email\": \"glade@gmail.com\",\n            \"password\": \"1234\",\n            \"phone\": \"+60123456789\",\n            \"created_at\": 1673586742\n        }\n    ]\n}"
+						},
+						{
+							"name": "Find By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/users/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:17:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Vochelle\",\n        \"email\": \"vochelle@gmail.com\",\n        \"password\": \"1234\",\n        \"phone\": \"+601987654321\",\n        \"created_at\": 1673585917\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 7KOHYin+pV1g1PKKmssXRg==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Glade Mia\",\n    \"email\": \"glade@gmail.com\",\n    \"phone\": \"+60123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/users/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Vochella\",\n    \"email\": \"vochella.com\",\n    \"phone\": \"+601131695979\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/users/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:19:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/users/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/users/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"users",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:23:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Rooms",
+			"item": [
+				{
+					"name": "Create Room",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to_number\": \"+60123456789\",\n    \"message\": \"Hello there Alex!!! How are you?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Room",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"to_number\": \"60123456789\",\n    \"message\": \"Hello there Alex!!! How are you?\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/rooms",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:25:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"numbers\": [\n            \"60123456789\",\n            \"+601131695979\"\n        ],\n        \"created_at\": \"2023-01-13 05:25:55\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GET My Room",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/rooms",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET My Room",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:26:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"numbers\": [\n                \"60123456789\",\n                \"+601131695979\"\n            ],\n            \"created_at\": \"2023-01-13 05:25:55\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "GET BY ID Room",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/rooms/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET BY ID Room",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:26:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"numbers\": [\n            \"60123456789\",\n            \"+601131695979\"\n        ],\n        \"created_at\": \"2023-01-13 05:25:55\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE Room",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/rooms/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE Room",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer cBsBfgRvEVNyvKLep/jgHg==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 05:26:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"glade@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vochelle Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"vochelle@gmail.com\",\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:8000/login",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 04:42:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=\"\n    }\n}"
+						},
+						{
+							"name": "Glade",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"glade@gmail.com\",\n    \"password\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:8000/login",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:39:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"7KOHYin+pV1g1PKKmssXRg==\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Glade\",\n    \"email\": \"glade@gmail.com\",\n    \"password\": \"1234\",\n    \"phone\": \"+60123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vochelle Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Vochelle\",\n    \"email\": \"vochelle@gmail.com\",\n    \"password\": \"1234\",\n    \"phone\": \"+601987654321\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 04:39:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=\"\n    }\n}"
+						},
+						{
+							"name": "Glade Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Glade\",\n    \"email\": \"glade@gmail.com\",\n    \"password\": \"1234\",\n    \"phone\": \"+60123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 04:41:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"7KOHYin+pV1g1PKKmssXRg==\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/logout",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vochelle Logout",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "127.0.0.1:8000/logout",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 04:47:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": \"Logged out successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "SMS",
+			"item": [
+				{
+					"name": "GET SMS By The Room",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/rooms/1/sms",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms",
+								"1",
+								"sms"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vochelle Message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms/1/sms/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1",
+										"sms",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:30:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"room_id\": 1,\n        \"user_id\": 1,\n        \"status\": \"unread\",\n        \"message\": \"Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!\",\n        \"created_at\": \"2023-01-13 06:25:06\",\n        \"room\": {\n            \"id\": 1,\n            \"numbers\": [\n                \"60123456789\",\n                \"+601131695979\"\n            ],\n            \"created_at\": \"2023-01-13 05:28:03\"\n        },\n        \"sender\": {\n            \"id\": 1,\n            \"name\": \"Vochelle\",\n            \"email\": \"vochelle@gmail.com\",\n            \"phone\": \"+601987654321\",\n            \"created_at\": \"2023-01-13 05:44:17\"\n        },\n        \"from\": \"me\"\n    }\n}"
+						},
+						{
+							"name": "Vochell Messages",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms/1/sms",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1",
+										"sms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:32:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"smses\": [\n            {\n                \"id\": 1,\n                \"room_id\": 1,\n                \"user_id\": 1,\n                \"status\": \"unread\",\n                \"message\": \"Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!\",\n                \"created_at\": \"2023-01-13 06:25:06\",\n                \"room\": {\n                    \"id\": 1,\n                    \"numbers\": [\n                        \"60123456789\",\n                        \"+601131695979\"\n                    ],\n                    \"created_at\": \"2023-01-13 05:28:03\"\n                },\n                \"sender\": {\n                    \"id\": 1,\n                    \"name\": \"Vochelle\",\n                    \"email\": \"vochelle@gmail.com\",\n                    \"phone\": \"+601987654321\",\n                    \"created_at\": \"2023-01-13 05:44:17\"\n                },\n                \"from\": \"me\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Glade Messages",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer 7KOHYin+pV1g1PKKmssXRg==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms/1/sms",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1",
+										"sms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:42:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"smses\": [\n            {\n                \"id\": 1,\n                \"room_id\": 1,\n                \"user_id\": 1,\n                \"status\": \"unread\",\n                \"message\": \"Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!\",\n                \"created_at\": \"2023-01-13 06:42:20\",\n                \"room\": {\n                    \"id\": 1,\n                    \"numbers\": [\n                        \"60123456789\",\n                        \"+601131695979\"\n                    ],\n                    \"created_at\": \"2023-01-13 05:28:03\"\n                },\n                \"sender\": {\n                    \"id\": 1,\n                    \"name\": \"Vochelle\",\n                    \"email\": \"vochelle@gmail.com\",\n                    \"phone\": \"+601987654321\",\n                    \"created_at\": \"2023-01-13 05:44:17\"\n                },\n                \"from\": \"Vochelle\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Glade Message Change Status To Read",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer 7KOHYin+pV1g1PKKmssXRg==",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms/1/sms",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1",
+										"sms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:42:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"smses\": [\n            {\n                \"id\": 1,\n                \"room_id\": 1,\n                \"user_id\": 1,\n                \"status\": \"read\",\n                \"message\": \"Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!\",\n                \"created_at\": \"2023-01-13 06:42:20\",\n                \"room\": {\n                    \"id\": 1,\n                    \"numbers\": [\n                        \"60123456789\",\n                        \"+601131695979\"\n                    ],\n                    \"created_at\": \"2023-01-13 05:28:03\"\n                },\n                \"sender\": {\n                    \"id\": 1,\n                    \"name\": \"Vochelle\",\n                    \"email\": \"vochelle@gmail.com\",\n                    \"phone\": \"+601987654321\",\n                    \"created_at\": \"2023-01-13 05:44:17\"\n                },\n                \"from\": \"Vochelle\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "SEND Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 7KOHYin+pV1g1PKKmssXRg==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/rooms/1/sms",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms",
+								"1",
+								"sms"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vochelle Message",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"message\": \"Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/rooms/1/sms",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1",
+										"sms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:25:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"room_id\": 1,\n        \"user_id\": 1,\n        \"message\": \"Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!\",\n        \"status\": \"unread\",\n        \"created_at\": \"2023-01-13 06:25:06\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GET One SMS By The Room",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/rooms/1/sms/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms",
+								"1",
+								"sms",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vochelle Message By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms/1/sms/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1",
+										"sms",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:32:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"room_id\": 1,\n        \"user_id\": 1,\n        \"status\": \"unread\",\n        \"message\": \"Hey!!!! I see you've been texting me. I've been busy though. Sorry ya!\",\n        \"created_at\": \"2023-01-13 06:25:06\",\n        \"room\": {\n            \"id\": 1,\n            \"numbers\": [\n                \"60123456789\",\n                \"+601131695979\"\n            ],\n            \"created_at\": \"2023-01-13 05:28:03\"\n        },\n        \"sender\": {\n            \"id\": 1,\n            \"name\": \"Vochelle\",\n            \"email\": \"vochelle@gmail.com\",\n            \"phone\": \"+601987654321\",\n            \"created_at\": \"2023-01-13 05:44:17\"\n        },\n        \"from\": \"me\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update One SMS By Room",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"Bhbhbhbhbhb In a big win for you, the consumer, the FCA (Financial Conduct Authority) has set out further legislation to protect customers\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/rooms/1/sms/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms",
+								"1",
+								"sms",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vochelle Update Message",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"message\": \"Bhbhbhbhbhb In a big win for you, the consumer, the FCA (Financial Conduct Authority) has set out further legislation to protect customers\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/rooms/1/sms/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1",
+										"sms",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:33:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete One SMS By Room",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/rooms/1/sms/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"rooms",
+								"1",
+								"sms",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Vochelle Delete Message",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/rooms/1/sms/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"rooms",
+										"1",
+										"sms",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:35:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"room_id\": 1,\n        \"user_id\": 1,\n        \"message\": \"Bhbhbhbhbhb In a big win for you, the consumer, the FCA (Financial Conduct Authority) has set out further legislation to protect customers\",\n        \"status\": \"unread\",\n        \"created_at\": \"2023-01-13 06:25:06\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Me",
+			"item": [
+				{
+					"name": "My Unread SMS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/me/unread-sms",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"me",
+								"unread-sms"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "My Unread SMS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/me/unread-sms",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"me",
+										"unread-sms"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:52:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"total\": 1,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"room_id\": 1,\n            \"user_id\": 2,\n            \"status\": \"unread\",\n            \"message\": \"Bhbhbhbhbhb In a big win for you, the consumer, the FCA (Financial Conduct Authority) has set out further legislation to protect customers\",\n            \"created_at\": \"2023-01-13 06:44:21\",\n            \"room\": {\n                \"id\": 1,\n                \"numbers\": [\n                    \"+60123456789\",\n                    \"+601987654321\"\n                ],\n                \"created_at\": \"2023-01-13 05:28:03\"\n            },\n            \"sender\": {\n                \"id\": 2,\n                \"name\": \"Glade Mia\",\n                \"email\": \"glade@gmail.com\",\n                \"phone\": \"+60123456789\",\n                \"created_at\": \"2023-01-13 05:44:32\"\n            },\n            \"from\": \"Glade Mia\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "UAO7i7DYg3v+dKeIHF0JLE9IAPQpLZnliJ7rPoQVcCE=",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/me",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Me",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0=",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8000/me",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jan 2023 06:38:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Vochelle\",\n        \"email\": \"vochelle@gmail.com\",\n        \"password\": \"1234\",\n        \"phone\": \"+601987654321\",\n        \"created_at\": \"2023-01-13 05:44:17\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

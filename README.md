@@ -1624,6 +1624,11 @@ Alice->>Server: Request All SMS Messages
     </tr>
 </table>
 
+# Postman
+
+You can import the postman collection from the directory `POSTMANPHPSMS.json` to test the API.
+
+
 
 
 
