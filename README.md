@@ -44,7 +44,7 @@ Use of proper API methods for each endpoint (GET, POST, etc)
 |         | Description | Run on Local | Run on Docker |
 |---------|-------------|--------------|---------------|
 | Full-Stack Socket.io | This is a full-stack application that uses Socket.io to send SMS messages to the client. |```php start.php start```|```docker compose up -d```|
-| API | This is a simple API application that uses a queue to send SMS messages to the client. |```php server.php```|```docker compose up -d```|
+| API | This is a simple API application that uses a queue to send SMS messages to the client. |```php -S 0.0.0.0:8000 server.php```|```docker compose up -d```|
 
 
 ## Installation & Run on Local (Full-Stack Socket.io)
@@ -218,9 +218,10 @@ Alice->>Server: Request All SMS Messages
             <h4>Method</h4>
             <p><code>POST</code></p>
             <h4>Parameters</h4>
+            <h4>Body</h4>
             <table>
                 <tr>
-                    <th>Parameter</th>
+                    <th>Body Type</th>
                     <th>Type</th>
                     <th>Required</th>
                     <th>Description</th>
@@ -250,13 +251,28 @@ Alice->>Server: Request All SMS Messages
                     <td>The password of the user</td>
                 </tr>
             </table>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+            </table>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
-                        "name": "John Doe",
-                        "email": "xxx@xxx.com",
-                        "phone": "0123456789",
-                        "password": "123456",
+                        "name": "Vochelle",
+                        "email": "vochelle@gmail.com",
+                        "password": "1234",
+                        "phone": "+601987654321"
                     }
             </code></pre>
             <h4>Example Response</h4>
@@ -264,9 +280,16 @@ Alice->>Server: Request All SMS Messages
                     {
                         "status": "success",
                         "data": {
-                            "name": "John Doe",
-                            "email": "xxx",
-                            "created_at": "2021-08-01T12:00:00.000000Z",
+                            "token": "QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0="
+                        }
+                    }
+            </code></pre>
+            <h4>Error Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "error",
+                        "data": {
+                            "message": "User Exists"
                         }
                     }
             </code></pre>
@@ -279,6 +302,21 @@ Alice->>Server: Request All SMS Messages
             <h4>Method</h4>
             <p><code>POST</code></p>
             <h4>Parameters</h4>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+            </table>
             <table>
                 <tr>
                     <td><code>email</code></td>
@@ -297,15 +335,26 @@ Alice->>Server: Request All SMS Messages
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
                     {
-                        "email": "xxx@xxx.com",
-                        "password": "123456",
+                        "email": "vochelle@gmail.com",
+                        "password": "1234"
                     }
             </code></pre>
             <h4>Example Response</h4>
             <pre><code class="language-javascript">
                     {
                         "status": "success",
-                        "data": "ajhebwebuywuyeqbquywbBEJBQJBiubsdbhfwe="
+                        "data": {
+                            "token": "QMSEWFhDGrDVqqHMgxrULAvZgEfxsqcO5BrRF1in/d0="
+                        }
+                    }
+            </code></pre>
+            <h4>Error Response</h4>
+            <pre><code class="language-javascript">
+                    {
+                        "status": "error",
+                        "data": {
+                            "message": "Invalid Credentials"
+                        }
                     }
             </code></pre>
         </td>
@@ -317,6 +366,28 @@ Alice->>Server: Request All SMS Messages
             <h4>Method</h4>
             <p><code>POST</code></p>
             <h4>Parameters</h4>
+            <p>No parameters are required.</p>
+            <h4>Request Header</h4>
+            <table>
+                <tr>
+                    <th>Header Type</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Content-Type</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>application/json</td>
+                </tr>
+                <tr>
+                    <td>Authorization</td>
+                    <td>string</td>
+                    <td>yes</td>
+                    <td>Bearer {token}</td>
+                </tr>
+            </table>
             <h4>Notes</h4>
             <p>No parameters are required.</p>
             <h4>Example Request</h4>

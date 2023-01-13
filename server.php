@@ -37,9 +37,15 @@ $router->post('/register', function($matches, $query, $body, $headers, $user) {
             'created_at' => date('Y-m-d H:i:s'),
         ));
 
+        $authenticate = new Authentication();
+        $token = $authenticate->login(array(
+            'email' => $data['email'],
+            'password' => $data['password'],
+        ));
+
         return array(
             'status' => 'success',
-            'data' => $data
+            'data' => $token
         );
     } catch (Exception $e) {
         return array(

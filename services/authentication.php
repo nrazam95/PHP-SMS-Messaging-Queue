@@ -34,7 +34,6 @@ class Authentication
 
     public function logout($data)
     {
-        $this->token->deleteToken($data['token']);
         return 'Logged out successfully';
     }
 }

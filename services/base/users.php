@@ -13,7 +13,7 @@ class User
     {
         $json = json_encode($user);
         file_put_contents($this->fileName, $json . PHP_EOL, FILE_APPEND | LOCK_EX);
-        return json_encode($user);
+        return $user;
     }
 
     public function getUser()
