@@ -482,6 +482,15 @@ Alice->>Server: Request All SMS Messages
                     <td>yes</td>
                     <td>The id of the user</td>
                 </tr>
+            </table>
+            <h4>Body Type</h4>
+            <table>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
                 <tr>
                     <td>name</td>
                     <td>string</td>
@@ -500,12 +509,6 @@ Alice->>Server: Request All SMS Messages
                     <td>yes</td>
                     <td>The phone number of the user</td>
                 </tr>
-                <tr>
-                    <td>password</td>
-                    <td>string</td>
-                    <td>yes</td>
-                    <td>The password of the user</td>
-                </tr>
             </table>
             <h4>Example Request</h4>
             <pre><code class="language-javascript">
@@ -513,7 +516,7 @@ Alice->>Server: Request All SMS Messages
                         "name": "John Doe",
                         "email": "xxx",
                         "phone": "0123456789",
-                        }
+                    }
             </code></pre>
             <h4>Example Response</h4>
             <pre><code class="language-javascript">
