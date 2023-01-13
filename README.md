@@ -200,11 +200,11 @@ Alice->>Server: Request All SMS Messages
 | MySelf | Get Myself | Get the authenticated user | GET | /me | JWT |
 | MySelf | All Unread SMS Messages | Get all unread SMS messages | GET | /me/unread-sms | JWT |
 
-***Notice:*** *The endpoints that require JWT authentication, you need to pass the JWT token in the header of the request.*
+**Notice:** *The endpoints that require JWT authentication, you need to pass the JWT token in the header of the request.*
 
-***What is JWT Token?*** *JWT is a standard for creating access tokens for an application. The token is signed by the server using a secret key and contains information about the user. The token is sent to the client and the client sends it back to the server in the Authorization header.*
+**What is JWT Token?** *JWT is a standard for creating access tokens for an application. The token is signed by the server using a secret key and contains information about the user. The token is sent to the client and the client sends it back to the server in the Authorization header.*
 
-***Example:*** *Authorization: Bearer {JWT_TOKEN}*
+**Example:** *Authorization: Bearer {JWT_TOKEN}*
 
 ## Authentication
 
